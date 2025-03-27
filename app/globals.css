@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.footer {
+  font-family: "Red Hat Text", sans-serif;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 16 89% 54%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 30 100% 62%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 91%;
+  --muted-foreground: 0 0% 20%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+  --radius: 0.5rem;
+  --dark-gray: 0 0% 14%;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.bg-dark-gray {
+  background-color: #232323;
+}
+
+#services {
+  background-image: url(/abstract-bg.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.abstract-bg-alt {
+  background-image: url("/abstract-bg-2.svg");
+  background-size: 75%;
+  background-repeat: repeat;
+}
+
+#patterns-bg {
+  background-image: url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tribal-patterns2-CBYvzSyzEsJ0GbwiogaUHv9e5Ohw05.svg);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  opacity: 0.02;
+  z-index: -1;
+}
+
+/* Add this to the end of the file */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.glass-bg {
+  backdrop-filter: blur(10px);
+  background-color: #d9d9d917;
+}
+.glass-bg-alt {
+  backdrop-filter: blur(10px);
+  background-color: #d9d9d9d1;
+}
+
+.glass-bg-alt-2 {
+  backdrop-filter: blur(10px);
+  background-color: #d9d9d979;
+}
+
+.gradient-text-primary {
+  /*-webkit-linear-gradient(120deg, gold, #aa8818 57.98%) */
+  background: -webkit-linear-gradient(
+    5deg,
+    gold,
+    #aa8818,
+    #b59838,
+    #aa8818,
+    gold,
+    #aa8818,
+    #b59838 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+}
+.gradient-text-secondary {
+  /*-webkit-linear-gradient(120deg, gold, #aa8818 57.98%) */
+  background: -webkit-linear-gradient(
+    3deg,
+    #ff8a3d,
+    #ee5340,
+    #f15a24,
+    #ee5340,
+    #ff8a3d,
+    #ee5340,
+    #f15a24 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  animation-direction: reverse;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
