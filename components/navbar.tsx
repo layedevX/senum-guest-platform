@@ -11,7 +11,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import services from "@/utils/services";
 
@@ -53,14 +53,10 @@ export default function Navbar() {
       <header
         className={cl(
           "w-full h-[65px]",
-          {
-            "fixed top-0 left-0 right-0 z-50 bg-white":
-              !dynamicStick || isSticky,
-          },
+          { "fixed top-0 left-0 right-0 z-50 bg-white": !dynamicStick || isSticky },
           { " shadow-md": isSticky },
           { "border-b border-gray-100 shadow-sm": !dynamicStick }
-        )}
-      >
+        )}>
         <div className="container flex h-16 items-center">
           <div className="flex-1">
             <Link href="/" className="flex items-center">
@@ -80,8 +76,7 @@ export default function Navbar() {
                 pathname === "/"
                   ? "text-primary"
                   : "text-foreground/80 hover:text-primary"
-              }`}
-            >
+              }`}>
               Overview
             </Link>
             <DropdownMenu>
@@ -90,44 +85,34 @@ export default function Navbar() {
                   pathname.startsWith("/services")
                     ? "text-primary"
                     : "text-foreground/80 hover:text-primary"
-                }`}
-              >
+                }`}>
                 Services <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="w-80 p-2">
                 <DropdownMenuItem className="p-2 mb-2 border-b border-gray-200 focus:bg-gray-100">
                   <Link
                     href="/services"
-                    className="w-full text-center text-primary hover:underline"
-                  >
+                    className="w-full text-center text-primary hover:underline">
                     View All Services
                   </Link>
                 </DropdownMenuItem>
-                {services
-                  .slice(0, 5)
-                  .map(({ id, Icon, title, description }) => (
-                    <DropdownMenuItem
-                      key={id}
-                      className="p-3 focus:bg-gray-100"
-                    >
-                      <Link
-                        href={`/services/${id}`}
-                        className="w-full flex items-start gap-3"
-                      >
-                        <div className="flex-shrink-0 mt-1">
-                          <Icon className="h-8 w-8 text-primary" />
+                {services.slice(0, 5).map(({ id, Icon, title, description }) => (
+                  <DropdownMenuItem key={id} className="p-3 focus:bg-gray-100">
+                    <Link
+                      href={`/services/${id}`}
+                      className="w-full flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <Icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">{title}</div>
+                        <div className="text-xs text-foreground/55 mt-1">
+                          {description}
                         </div>
-                        <div>
-                          <div className="font-medium text-foreground">
-                            {title}
-                          </div>
-                          <div className="text-xs text-foreground/55 mt-1">
-                            {description}
-                          </div>
-                        </div>
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
+                      </div>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
             <Link
@@ -136,8 +121,7 @@ export default function Navbar() {
                 pathname === "/about"
                   ? "text-primary"
                   : "text-foreground/80 hover:text-primary"
-              }`}
-            >
+              }`}>
               About
             </Link>
             {/* <Link
@@ -156,8 +140,7 @@ export default function Navbar() {
                 "https://cloud.heritage.africa"
               }
               target="_blank"
-              className="flex items-center text-sm font-medium text-foreground/80 hover:text-primary"
-            >
+              className="flex items-center text-sm font-medium text-foreground/80 hover:text-primary">
               Contact
               <ExternalLink className="ml-1 h-4 w-4" />
             </a>
@@ -166,8 +149,7 @@ export default function Navbar() {
             <a href="https://origins.heritage.africa">
               <Button
                 size="sm"
-                className="bg-primary hover:bg-primary/90 text-white w-full"
-              >
+                className="bg-primary hover:bg-primary/90 text-white w-full">
                 Access Cloud
               </Button>
             </a>

@@ -9,7 +9,7 @@ import {
   HardDrive,
   Layers,
   Shield,
-  ActivityIcon,
+  ActivityIcon
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,7 +22,7 @@ import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 
 export async function generateMetadata({
-  params,
+  params
 }: {
   params: Promise<{ serviceId: string }>;
 }): Promise<Metadata> {
@@ -30,14 +30,11 @@ export async function generateMetadata({
 
   const service = services.find((service) => service.id === serviceId);
 
-  return {
-    title: service?.title || "Not Found",
-    description: service?.description,
-  };
+  return { title: service?.title || "Not Found", description: service?.description };
 }
 
 export default async function ServiceDetail({
-  params,
+  params
 }: {
   params: Promise<{ serviceId: string }>;
 }) {
@@ -63,8 +60,7 @@ export default async function ServiceDetail({
         <div className="container px-4 py-8 md:px-6 md:py-12">
           <Link
             href="/services"
-            className="inline-flex items-center text-sm font-medium text-primary mb-6 hover:underline"
-          >
+            className="inline-flex items-center text-sm font-medium text-primary mb-6 hover:underline">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Services
           </Link>
@@ -74,12 +70,8 @@ export default async function ServiceDetail({
               <service.Icon className="h-12 w-12 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h1 className="text-3xl font-bold mb-4 text-foreground">
-                {service.title}
-              </h1>
-              <p className="text-lg text-foreground/50 mb-6">
-                {service.longDescription}
-              </p>
+              <h1 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h1>
+              <p className="text-lg text-foreground/50 mb-6">{service.longDescription}</p>
               <a href="https://origins.heritage.africa">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
                   Access {service.title}
@@ -95,8 +87,7 @@ export default async function ServiceDetail({
             </TabsList>
             <TabsContent
               value="features"
-              className="p-4 border rounded-lg glass-bg-alt-2"
-            >
+              className="p-4 border rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">Key Features</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {service.features.map((feature, index) => (
@@ -109,11 +100,8 @@ export default async function ServiceDetail({
             </TabsContent>
             <TabsContent
               value="use-cases"
-              className="p-4 border rounded-lg glass-bg-alt-2"
-            >
-              <h3 className="text-xl font-light mb-4 hidden">
-                Common Use Cases
-              </h3>
+              className="p-4 border rounded-lg glass-bg-alt-2">
+              <h3 className="text-xl font-light mb-4 hidden">Common Use Cases</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {service.useCases.map((useCase, index) => (
                   <Card key={index} className="bg-white">

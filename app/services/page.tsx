@@ -5,24 +5,17 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 import Head from "next/head";
-import {
-  ForwardRefExoticComponent,
-  Fragment,
-  ReactNode,
-  RefAttributes,
-} from "react";
+import { ForwardRefExoticComponent, Fragment, ReactNode, RefAttributes } from "react";
 import { Metadata } from "next";
 import { LucideProps } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Services",
-};
+export const metadata: Metadata = { title: "Services" };
 
 export default function ServicesPage() {
   return (
@@ -65,11 +58,7 @@ export default function ServicesPage() {
 
               {["compute", "storage", "data", "applications", "security"].map(
                 (category) => (
-                  <TabsContent
-                    value={category}
-                    className="w-full"
-                    key={category}
-                  >
+                  <TabsContent value={category} className="w-full" key={category}>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {services
                         .filter((service) => service.category === category)
@@ -92,14 +81,13 @@ export default function ServicesPage() {
                   Ready to Get Started?
                 </h2>
                 <p className="max-w-[600px] text-gray-800">
-                  Contact our team to learn more about our cloud services and
-                  how they can benefit your business.
+                  Contact our team to learn more about our cloud services and how they can
+                  benefit your business.
                 </p>
                 <div className="pt-4">
                   <a
                     href="mailto:support@heritage.africa?subject=Cloud Service Enquiry"
-                    target="_blank"
-                  >
+                    target="_blank">
                     <Button className="bg-primary hover:bg-primary/90">
                       Contact Sales
                     </Button>
@@ -118,7 +106,7 @@ function ServiceCard({
   id,
   title,
   description,
-  Icon,
+  Icon
 }: {
   id: string;
   title: string;

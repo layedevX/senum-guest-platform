@@ -1,0 +1,14 @@
+{
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "objectWrap": "collapse",
+  "bracketSpacing": true,
+  "trailingComma": "none",
+  "jsxSingleQuote": false,
+  "quoteProps": "consistent",
+  "singleQuote": false,
+  "semi": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 90
+}

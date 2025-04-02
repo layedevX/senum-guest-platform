@@ -31,9 +31,7 @@ export const Button: FC<
     { "bg-black hover:bg-black/80 text-white": variant === "black" },
     { "text-md rounded-lg py-1 px-3": size === "sm" },
     { "text-md rounded-lg py-2 px-4": size === "md" },
-    {
-      "text-lg md:text-xl rounded-lg py-2 md:py-3 px-5 md:px-7": size === "lg",
-    },
+    { "text-lg md:text-xl rounded-lg py-2 md:py-3 px-5 md:px-7": size === "lg" },
     { "opacity-50 pointer-events-none": props.disabled },
     { "pointer-events-none": isLoading },
     className

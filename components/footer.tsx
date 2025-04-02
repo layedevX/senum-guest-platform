@@ -76,7 +76,7 @@ const Subscribe: FC<{}> = () => {
     fetch("/api/emails", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(fields),
+      body: JSON.stringify(fields)
     })
       .then(console.log)
       .catch(console.error)
@@ -93,7 +93,7 @@ const Subscribe: FC<{}> = () => {
           <p className="text-gray-100">
             {translate({
               en: "Stay up to date on the Heritage Project.",
-              fr: "Restez à jour sur le Projet Héritage.",
+              fr: "Restez à jour sur le Projet Héritage."
             })}
           </p>
           <form className="flex gap-x-1 w-full" onSubmit={handleSubmit}>
@@ -117,7 +117,7 @@ const Subscribe: FC<{}> = () => {
         <p className="text-gray-100">
           {translate({
             en: "Thanks for subcribing to the Heritage Project.",
-            fr: "Merci de vous être abonné au Projet Héritage.",
+            fr: "Merci de vous être abonné au Projet Héritage."
           })}
         </p>
       )}
@@ -131,8 +131,7 @@ function FooterLink(props: { title: string; href?: string }) {
       href={props.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-lg text-gray-100 hover:text-white cursor-pointer"
-    >
+      className="text-lg text-gray-100 hover:text-white cursor-pointer">
       {props.title}
     </a>
   );
