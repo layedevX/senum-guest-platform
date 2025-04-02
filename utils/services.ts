@@ -7,15 +7,14 @@ import {
   Code,
   Layers,
   ActivityIcon,
-  Grid,
+  Grid
 } from "lucide-react";
 
 export default [
   {
     id: "openshift-workspaces",
     title: "OpenShift Workspaces",
-    description:
-      "Fully managed OpenShift environments for your development teams.",
+    description: "Fully managed OpenShift environments for your development teams.",
     Icon: Server,
     category: "development",
     longDescription:
@@ -26,14 +25,14 @@ export default [
       "Containerized development workspaces",
       "Team collaboration tools",
       "Automated scaling and resource management",
-      "Enterprise-grade security",
+      "Enterprise-grade security"
     ],
     useCases: [
       "Enterprise application development",
       "Microservices architecture",
       "DevOps transformation",
-      "Cloud-native development",
-    ],
+      "Cloud-native development"
+    ]
   },
   {
     id: "software-as-a-service",
@@ -50,20 +49,19 @@ export default [
       "Enterprise-grade security and compliance",
       "Seamless integration with existing systems",
       "Scalable resources based on demand",
-      "24/7 technical support",
+      "24/7 technical support"
     ],
     useCases: [
       "Business process automation",
       "Data analytics and business intelligence",
       "Customer relationship management",
-      "Enterprise resource planning",
-    ],
+      "Enterprise resource planning"
+    ]
   },
   {
     id: "s3-object-storage",
     title: "S3 Object Storage",
-    description:
-      "Scalable, secure object storage for your applications and data.",
+    description: "Scalable, secure object storage for your applications and data.",
     Icon: HardDrive,
     category: "storage",
     longDescription:
@@ -74,14 +72,14 @@ export default [
       "Data encryption at rest and in transit",
       "Versioning and lifecycle management",
       "Multi-region replication",
-      "Access control and permissions",
+      "Access control and permissions"
     ],
     useCases: [
       "Backup and recovery",
       "Big data analytics",
       "Content distribution",
-      "Data archiving",
-    ],
+      "Data archiving"
+    ]
   },
   {
     id: "database-as-a-service",
@@ -98,20 +96,19 @@ export default [
       "Performance monitoring and optimization",
       "Automatic scaling",
       "Security and compliance",
-      "24/7 expert support",
+      "24/7 expert support"
     ],
     useCases: [
       "Web and mobile applications",
       "E-commerce platforms",
       "Content management systems",
-      "Business intelligence and analytics",
-    ],
+      "Business intelligence and analytics"
+    ]
   },
   {
     id: "virtual-machines",
     title: "Virtual Machines",
-    description:
-      "High-performance virtual machines with flexible configurations.",
+    description: "High-performance virtual machines with flexible configurations.",
     Icon: Cpu,
     category: "compute",
     longDescription:
@@ -122,14 +119,14 @@ export default [
       "Dedicated or shared resources",
       "Automated scaling",
       "High availability options",
-      "Integrated monitoring and management",
+      "Integrated monitoring and management"
     ],
     useCases: [
       "Application hosting",
       "Development and testing",
       "Disaster recovery",
-      "Legacy application migration",
-    ],
+      "Legacy application migration"
+    ]
   },
   {
     id: "backup-as-a-service",
@@ -145,14 +142,14 @@ export default [
       "End-to-end encryption",
       "Rapid recovery options",
       "Long-term retention policies",
-      "Compliance reporting",
+      "Compliance reporting"
     ],
     useCases: [
       "Business continuity",
       "Disaster recovery",
       "Regulatory compliance",
-      "Protection against ransomware",
-    ],
+      "Protection against ransomware"
+    ]
   },
   {
     id: "paas-application-hosting",
@@ -169,14 +166,14 @@ export default [
       "Integrated development tools",
       "Built-in monitoring and logging",
       "Continuous integration and delivery",
-      "Multi-language support",
+      "Multi-language support"
     ],
     useCases: [
       "Web application hosting",
       "API development and hosting",
       "Microservices architecture",
-      "DevOps enablement",
-    ],
+      "DevOps enablement"
+    ]
   },
   {
     id: "cluster-openshift",
@@ -193,20 +190,19 @@ export default [
       "Integrated CI/CD pipelines",
       "Advanced networking and security",
       "Multi-cluster management",
-      "Enterprise support",
+      "Enterprise support"
     ],
     useCases: [
       "Containerized application deployment",
       "Hybrid cloud environments",
       "Microservices architecture",
-      "DevOps transformation",
-    ],
+      "DevOps transformation"
+    ]
   },
   {
     id: "serverless-functions",
     title: "Serverless Functions",
-    description:
-      "Event-driven serverless computing platform for modern applications.",
+    description: "Event-driven serverless computing platform for modern applications.",
     Icon: ActivityIcon,
     category: "compute",
     longDescription:
@@ -217,14 +213,14 @@ export default [
       "Pay-per-execution pricing",
       "Event-driven architecture",
       "Integrated monitoring and logging",
-      "Multi-language support",
+      "Multi-language support"
     ],
 
     useCases: [
       "API backends",
       "Real-time file processing",
       "IoT data processing",
-      "Scheduled tasks and automation",
-    ],
-  },
+      "Scheduled tasks and automation"
+    ]
+  }
 ];

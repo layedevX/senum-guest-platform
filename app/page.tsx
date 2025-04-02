@@ -8,7 +8,7 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import Navbar from "@/components/navbar";
 import { partners } from "@/utils/misc";
@@ -37,23 +37,21 @@ export default function Home() {
                   Continent
                 </h1>
                 <p className="text-foreground/65 md:text-xl">
-                  Powerful, scalable, and secure cloud infrastructure designed
-                  for African businesses.
+                  Powerful, scalable, and secure cloud infrastructure designed for African
+                  businesses.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a href="https://origins.heritage.africa">
                     <Button
                       size="lg"
-                      className="bg-primary hover:bg-primary/90 text-white w-full"
-                    >
+                      className="bg-primary hover:bg-primary/90 text-white w-full">
                       Access Cloud
                     </Button>
                   </a>
                   <Link href="/services">
                     <Button
                       size="lg"
-                      className="bg-white hover:bg-gray-100 text-black border border-gray-300 w-full"
-                    >
+                      className="bg-white hover:bg-gray-100 text-black border border-gray-300 w-full">
                       Explore Services
                     </Button>
                   </Link>
@@ -73,10 +71,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="services"
-          className="w-full py-12 md:py-24 lg:py-32 bg-black"
-        >
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6 mt-[90px] sm:mt-[100px] md:mt-[130px] lg:mt-[160px] xl:mt-[180px] mb-[-100px] sm:mb-[-120px] md:mb-[-170px] lg:mb-[-210px]">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -99,8 +94,7 @@ export default function Home() {
               {services.slice(0, 6).map(({ id, title, Icon, description }) => (
                 <Card
                   key={id}
-                  className="flex flex-col h-full relative z-10 bg-transparent border-none rounded-md overflow-hidden shadow-lg"
-                >
+                  className="flex flex-col h-full relative z-10 bg-transparent border-none rounded-md overflow-hidden shadow-lg">
                   <div className="absolute inset-0 glass-bg -z-10"></div>
                   <CardHeader className="flex flex-row items-center gap-4">
                     <Icon className="text-primary" />
@@ -116,8 +110,7 @@ export default function Home() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="w-full text-gray-300 hover:text-white"
-                      >
+                        className="w-full text-gray-300 hover:text-white">
                         Learn More
                       </Button>
                     </Link>
@@ -137,8 +130,7 @@ export default function Home() {
                   {partners.map((partner, index) => (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-28 h-16 flex items-center justify-center"
-                    >
+                      className="flex-shrink-0 w-28 h-16 flex items-center justify-center">
                       <Image
                         src={partner.logo || "/placeholder.svg"}
                         alt={partner.name}
@@ -159,9 +151,8 @@ export default function Home() {
           className="w-full py-12 md:py-24 lg:py-32 bg-white"
           style={{
             boxShadow:
-              "inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2)",
-          }}
-        >
+              "inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2)"
+          }}>
           <div className="container px-4 md:px-6 mt-[90px] md:mt-[80px] lg:mt-[40px]">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -182,40 +173,33 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="text-foreground/70">
-                  Secure, compliant cloud infrastructure for banking, insurance,
-                  and fintech companies.
+                  Secure, compliant cloud infrastructure for banking, insurance, and
+                  fintech companies.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 mb-2">
                   <Hospital className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">
-                    Healthcare
-                  </h3>
+                  <h3 className="text-xl font-bold text-foreground">Healthcare</h3>
                 </div>
                 <p className="text-foreground/70">
-                  HIPAA-compliant solutions for healthcare providers and medical
-                  research.
+                  HIPAA-compliant solutions for healthcare providers and medical research.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 mb-2">
                   <Landmark className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">
-                    Government
-                  </h3>
+                  <h3 className="text-xl font-bold text-foreground">Government</h3>
                 </div>
                 <p className="text-foreground/70">
-                  Secure and reliable cloud services for government agencies and
-                  public sector.
+                  Secure and reliable cloud services for government agencies and public
+                  sector.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 mb-2">
                   <GraduationCap className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">
-                    Education
-                  </h3>
+                  <h3 className="text-xl font-bold text-foreground">Education</h3>
                 </div>
                 <p className="text-foreground/70">
                   Scalable solutions for educational institutions and e-learning

@@ -14,7 +14,7 @@ export const Input: FC<
     { "bg-gray-200": variant === "light" && props.disabled }
   );
   const inputClass = cl("py-2 px-2 w-full bg-transparent outline-none", {
-    "text-white": variant === "dark",
+    "text-white": variant === "dark"
   });
   return (
     <div className={containerClass}>
