@@ -3,6 +3,7 @@
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import { FC, useState, FormEvent, Fragment, ChangeEvent } from "react";
+import Image from "next/image";
 
 const translate = (arg: Record<string, string>) => arg["en"];
 
@@ -44,7 +45,7 @@ export default function Footer() {
             <span className="font-semibold">
               {translate({ en: "Address ", fr: "Adresse " })}{" "}
             </span>
-            165 virage, Rte de l'Aeroport, Dakar, Senegal
+            {"165 virage, Rte de l'Aeroport, Dakar, Senegal"}
           </p>
           <p className="text-white">
             <span className="font-semibold">
@@ -54,7 +55,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="max-w-[250px] flex flex-col gap-y-2 text-center justify-center">
-          <img src="/primary.svg" />
+          <Image alt="heritage-logo" src="/primary.svg" width={250} height={70} />
           <p className="text-white text-sm">
             &copy; 2025 Heritage Africa. All rights reserved.
           </p>
@@ -64,7 +65,7 @@ export default function Footer() {
   );
 }
 
-const Subscribe: FC<{}> = () => {
+const Subscribe: FC = () => {
   const [isLoading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const [fields, setFields] = useState({ email: "" });

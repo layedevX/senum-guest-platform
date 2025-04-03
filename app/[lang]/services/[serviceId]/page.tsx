@@ -1,19 +1,5 @@
-import {
-  ArrowLeft,
-  Server,
-  Code,
-  CheckCircle2,
-  Cpu,
-  Database,
-  Grid,
-  HardDrive,
-  Layers,
-  Shield,
-  ActivityIcon
-} from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

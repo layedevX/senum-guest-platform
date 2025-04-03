@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import services from "@/utils/services";
-import { DEFAULT_LANG, LANG_COOKIE } from "@/utils/constants";
+import { LANG_COOKIE } from "@/utils/constants";
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
@@ -60,7 +60,9 @@ export default function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    /* eslint-disable */
   }, []);
+  /* eslint-enable */
 
   return (
     <Fragment>
@@ -74,7 +76,7 @@ export default function Navbar() {
         )}>
         <div className="container flex h-16 items-center">
           <div className="flex-1">
-            <Link href="/" className="flex items-center">
+            <Link href={`/${lang}/`} className="flex items-center">
               <Image
                 src="/orange.svg"
                 alt="Heritage Cloud Logo"
@@ -86,7 +88,7 @@ export default function Navbar() {
           </div>
           <nav className="flex-1 flex justify-center gap-6 hidden md:flex">
             <Link
-              href="/"
+              href={`/${lang}/`}
               className={`flex items-center text-sm font-medium ${
                 pathname === "/"
                   ? "text-primary"
@@ -97,7 +99,7 @@ export default function Navbar() {
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={`flex items-center text-sm font-medium ${
-                  pathname.startsWith("/services")
+                  pathname.includes("/services")
                     ? "text-primary"
                     : "text-foreground/80 hover:text-primary"
                 }`}>
@@ -106,7 +108,7 @@ export default function Navbar() {
               <DropdownMenuContent align="center" className="w-80 p-2">
                 <DropdownMenuItem className="p-2 mb-2 border-b border-gray-200 focus:bg-gray-100">
                   <Link
-                    href="/services"
+                    href={`/${lang}/services`}
                     className="w-full text-center text-primary hover:underline">
                     View All Services
                   </Link>
@@ -114,7 +116,7 @@ export default function Navbar() {
                 {services.slice(0, 5).map(({ id, Icon, title, description }) => (
                   <DropdownMenuItem key={id} className="p-3 focus:bg-gray-100">
                     <Link
-                      href={`/services/${id}`}
+                      href={`/${lang}/services/${id}`}
                       className="w-full flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <Icon className="h-8 w-8 text-primary" />
@@ -131,7 +133,7 @@ export default function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
             <Link
-              href="/about"
+              href={`/${lang}/about`}
               className={`flex items-center text-sm font-medium ${
                 pathname === "/about"
                   ? "text-primary"

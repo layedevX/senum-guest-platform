@@ -57,7 +57,10 @@ export default async function About({ params }: { params: Promise<{ lang: string
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-foreground">
-                    About Heritage Cloud
+                    {translate({
+                      en: "About Heritage Cloud",
+                      fr: "A propos du Cloud Heritage"
+                    })}
                   </h1>
                   <p className="max-w-[600px] text-foreground/70 md:text-xl">
                     Empowering African businesses with world-class cloud infrastructure
@@ -65,11 +68,10 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   </p>
                 </div>
                 <p className="text-foreground/50">
-                  Heritage Cloud was founded with a vision to provide African businesses
-                  with the same level of cloud infrastructure and services available to
-                  enterprises around the world. We believe that access to cutting-edge
-                  technology is essential for innovation and growth in today's digital
-                  economy.
+                  {translate({
+                    en: "Heritage Cloud was founded with a vision to provide African businesses with the same level of cloud infrastructure and services available to enterprises around the world. We believe that access to cutting-edge technology is essential for innovation and growth in today's digital economy.",
+                    fr: ""
+                  })}
                 </p>
                 <p className="text-foreground/50">
                   Our team of experienced professionals is dedicated to delivering
@@ -174,8 +176,10 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   Join Our Team
                 </h2>
                 <p className="max-w-[600px] text-foreground/70">
-                  We're always looking for talented individuals to join our team. Check
-                  out our current openings.
+                  {translate({
+                    en: " We're always looking for talented individuals to join our team. Check out our current openings.",
+                    fr: ""
+                  })}
                 </p>
                 <div className="pt-4">
                   <a
