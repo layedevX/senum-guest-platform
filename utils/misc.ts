@@ -9,6 +9,7 @@ import {
   ActivityIcon,
   Grid
 } from "lucide-react";
+import { DEFAULT_LANG } from "./constants";
 
 export const cl = (
   ...classNames: Array<string | { [key: string]: boolean | undefined } | undefined>
@@ -26,6 +27,16 @@ export const cl = (
     .filter((val) => val)
     .join(" ");
 };
+
+export function getLang(langParam?: string) {
+  return langParam === "en" || langParam === "fr" ? langParam : DEFAULT_LANG;
+}
+
+export function getTranslateFn(lang: "en" | "fr") {
+  return function (strings: { en: string; fr: string }): string {
+    return strings[lang];
+  };
+}
 
 export const partners = [
   { name: "Red Hat", logo: "/redhat.png", width: 100, height: 50 },

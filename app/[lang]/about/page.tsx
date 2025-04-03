@@ -5,10 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/navbar";
 
 import { Metadata } from "next";
+import { getLang, getTranslateFn } from "@/utils/misc";
 
 export const metadata: Metadata = { title: "About" };
 
-export default function AboutPage() {
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fr" }];
+}
+
+export default async function About({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langParam } = await params;
+  const lang = getLang(langParam);
+
+  const translate = getTranslateFn(lang);
+
   const teamMembers = [
     {
       name: "Jane Smith",

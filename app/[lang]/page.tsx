@@ -1,7 +1,6 @@
 import { Building2, Hospital, Landmark, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,10 +10,19 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import Navbar from "@/components/navbar";
-import { partners } from "@/utils/misc";
+import { getLang, getTranslateFn, partners } from "@/utils/misc";
 import services from "@/utils/services";
 
-export default function Home() {
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fr" }];
+}
+
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: langParam } = await params;
+  const lang = getLang(langParam);
+
+  const translate = getTranslateFn(lang);
+
   return (
     <div className="flex min-h-screen flex-col bg-white relative z-10">
       <Navbar />
@@ -76,7 +84,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-white">
-                  Our Cloud Services
+                  {translate({ en: "Our Cloud Services", fr: "Nos Services Cloud" })}
                 </h2>
                 <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Comprehensive cloud solutions to power your business

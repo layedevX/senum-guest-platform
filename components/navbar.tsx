@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect, Fragment } from "react";
-import { ExternalLink, ChevronDown } from "lucide-react";
-import { cl } from "@/utils/misc";
+import { ExternalLink, ChevronDown, GlobeIcon } from "lucide-react";
+import { cl, getLang } from "@/utils/misc";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,11 +14,26 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import services from "@/utils/services";
+import { DEFAULT_LANG, LANG_COOKIE } from "@/utils/constants";
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const pathname = usePathname();
   const dynamicStick = ["/"].includes(pathname);
+
+  const langParam = useParams().lang as string | undefined;
+  const lang = getLang(langParam);
+
+  function toggleLang() {
+    const nextLang = lang === "fr" ? "en" : "fr";
+    document.cookie = `${LANG_COOKIE}=${nextLang};path=/`;
+    window.location.replace(
+      new URL(
+        window.location.pathname.replace(new RegExp(`^\/${lang}`), `/${nextLang}`),
+        window.location.href
+      )
+    );
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,7 +160,13 @@ export default function Navbar() {
               <ExternalLink className="ml-1 h-4 w-4" />
             </a>
           </nav>
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-end items-center gap-[5px]">
+            <Button
+              size="sm"
+              className="bg-white hover:bg-gray-100 text-gray-800 border border-gray-100"
+              onClick={toggleLang}>
+              <GlobeIcon /> <span>{lang?.toUpperCase()}</span>
+            </Button>
             <a href="https://origins.heritage.africa">
               <Button
                 size="sm"
