@@ -14,10 +14,24 @@ import Head from "next/head";
 import { ForwardRefExoticComponent, Fragment, ReactNode, RefAttributes } from "react";
 import { Metadata } from "next";
 import { LucideProps } from "lucide-react";
+import { getLang, getTranslateFn } from "@/utils/misc";
 
 export const metadata: Metadata = { title: "Services" };
 
-export default function ServicesPage() {
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fr" }];
+}
+
+export default async function Services({
+  params
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang: langParam } = await params;
+  const lang = getLang(langParam);
+
+  const translate = getTranslateFn(lang);
+
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
       {/* <div id="patterns-bg"></div> */}
