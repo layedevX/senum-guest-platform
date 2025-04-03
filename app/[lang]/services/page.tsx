@@ -1,17 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
-import Head from "next/head";
-import { ForwardRefExoticComponent, Fragment, ReactNode, RefAttributes } from "react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Metadata } from "next";
 import { LucideProps } from "lucide-react";
 import { getLang, getTranslateFn } from "@/utils/misc";
@@ -43,7 +36,7 @@ export default async function Services({
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter md:text-5xl">
-                  Our Cloud Services
+                  {translate({ en: "Our Cloud Services", fr: "Nos Services Cloud" })}
                 </h1>
                 <p className="max-w-[900px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Comprehensive cloud solutions to power your business

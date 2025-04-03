@@ -11,7 +11,8 @@ export const Input: FC<
     "text-md rounded-lg",
     { "bg-gray-800": variant === "dark" },
     { "bg-gray-100": variant === "light" },
-    { "bg-gray-200": variant === "light" && props.disabled }
+    { "bg-gray-200": variant === "light" && props.disabled },
+    className
   );
   const inputClass = cl("py-2 px-2 w-full bg-transparent outline-none", {
     "text-white": variant === "dark"
