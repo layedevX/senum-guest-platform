@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import services from "@/utils/services";
 import { LANG_COOKIE } from "@/utils/constants";
+import { getTranslateFn, partners } from "@/utils/misc";
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
@@ -23,6 +24,7 @@ export default function Navbar() {
 
   const langParam = useParams().lang as string | undefined;
   const lang = getLang(langParam);
+  const translate = getTranslateFn(lang);
 
   function toggleLang() {
     const nextLang = lang === "fr" ? "en" : "fr";
@@ -94,7 +96,7 @@ export default function Navbar() {
                   ? "text-primary"
                   : "text-foreground/80 hover:text-primary"
               }`}>
-              Overview
+              {translate({ en: "Overview", fr: "Aperçu" })}
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger
@@ -139,7 +141,8 @@ export default function Navbar() {
                   ? "text-primary"
                   : "text-foreground/80 hover:text-primary"
               }`}>
-              About
+              
+              {translate({ en: "About", fr: "À propos" })}
             </Link>
             {/* <Link
               href="/contact"
@@ -173,7 +176,8 @@ export default function Navbar() {
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-white w-full">
-                Access Cloud
+                
+                {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>
             </a>
           </div>

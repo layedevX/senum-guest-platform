@@ -45,22 +45,24 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   Continent
                 </h1>
                 <p className="text-foreground/65 md:text-xl">
-                  Powerful, scalable, and secure cloud infrastructure designed for African
-                  businesses.
+                 
+                  {translate({ en: "Powerful, scalable, and secure cloud infrastructure designed for African businesses.", fr: "Une infrastructure cloud puissante, évolutive et sécurisée conçue pour les entreprises africaines." })}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a href="https://origins.heritage.africa">
                     <Button
                       size="lg"
                       className="bg-primary hover:bg-primary/90 text-white w-full">
-                      Access Cloud
+                      
+                      {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
                     </Button>
                   </a>
                   <Link href="/services">
                     <Button
                       size="lg"
                       className="bg-white hover:bg-gray-100 text-black border border-gray-300 w-full">
-                      Explore Services
+                      
+                      {translate({ en: "Explore Services", fr: "Explorer nos services" })}
                     </Button>
                   </Link>
                 </div>
