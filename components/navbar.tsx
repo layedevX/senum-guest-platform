@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import services from "@/utils/services";
 import { LANG_COOKIE } from "@/utils/constants";
-import { getTranslateFn, partners } from "@/utils/misc";
+import { getTranslateFn} from "@/utils/misc";
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
