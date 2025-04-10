@@ -4,10 +4,14 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import { FC, useState, FormEvent, Fragment, ChangeEvent } from "react";
 import Image from "next/image";
-
-const translate = (arg: Record<string, string>) => arg["en"];
+import { useParams } from "next/navigation";
+import { getLang, getTranslateFn } from "@/utils/misc";
 
 export default function Footer() {
+  const langParam = useParams().lang as string | undefined;
+  const lang = getLang(langParam);
+  const translate = getTranslateFn(lang);
+
   return (
     <div className="relative footer">
       <div className="bg-black/90 absolute left-0 right-0 top-0 bottom-0 -z-10"></div>
@@ -24,7 +28,7 @@ export default function Footer() {
           </p>
           <FooterLink
             href="https://www.accel-tech.net"
-            title={translate({ en: "About", fr: "A-propos" })}
+            title={translate({ en: "About", fr: "À propos" })}
           />
           <FooterLink
             href="https://www.accel-tech.net"
@@ -32,7 +36,7 @@ export default function Footer() {
           />
           <FooterLink
             href="https://www.accel-tech.net"
-            title={translate({ en: "News", fr: "Nouvelles" })}
+            title={translate({ en: "News", fr: "Nouveautés" })}
           />
           <FooterLink
             href="https://www.accel-tech.net"
@@ -70,6 +74,10 @@ const Subscribe: FC = () => {
   const [subscribed, setSubscribed] = useState(false);
   const [fields, setFields] = useState({ email: "" });
 
+  const langParam = useParams().lang as string | undefined;
+  const lang = getLang(langParam);
+  const translate = getTranslateFn(lang);
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (isLoading) return;
@@ -94,7 +102,7 @@ const Subscribe: FC = () => {
           <p className="text-gray-100">
             {translate({
               en: "Stay up to date on the Heritage Project.",
-              fr: "Restez à jour sur le Projet Héritage."
+              fr: "Restez informé(e) des actualités du Projet Heritage."
             })}
           </p>
           <form className="flex gap-x-1 w-full" onSubmit={handleSubmit}>
