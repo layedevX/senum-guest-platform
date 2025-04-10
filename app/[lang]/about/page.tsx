@@ -63,8 +63,10 @@ export default async function About({ params }: { params: Promise<{ lang: string
                     })}
                   </h1>
                   <p className="max-w-[600px] text-foreground/70 md:text-xl">
-                    
-                    {translate({ en: "Empowering African businesses with world-class cloud infrastructure and services.", fr: "Donnons aux entreprises africaines les moyens de réussir grâce à une infrastructure et des services cloud de classe mondiale." })}
+                    {translate({
+                      en: "Empowering African businesses with world-class cloud infrastructure and services.",
+                      fr: "Donnons aux entreprises africaines les moyens de réussir grâce à une infrastructure et des services cloud de classe mondiale."
+                    })}
                   </p>
                 </div>
                 <p className="text-foreground/50">
@@ -74,7 +76,6 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   })}
                 </p>
                 <p className="text-foreground/50">
-                  
                   {translate({
                     en: "Our team of experienced professionals is dedicated to delivering reliable, secure, and scalable cloud solutions that meet the unique needs of businesses across the continent.",
                     fr: "Notre équipe de professionnels expérimentés est dédiée à la fourniture de solutions cloud fiables, sécurisées et évolutives qui répondent aux besoins uniques des entreprises à travers le continent."
@@ -98,10 +99,10 @@ export default async function About({ params }: { params: Promise<{ lang: string
           <div className="container px-4 md:px-6">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-white">
-              {translate({
-                    en: "Our Mission & Values",
-                    fr: "Notre Mission & Nos Valeurs"
-                  })}
+                {translate({
+                  en: "Our Mission & Values",
+                  fr: "Notre Mission & Nos Valeurs"
+                })}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -110,14 +111,13 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   <div className="flex flex-col items-center text-center space-y-3">
                     <Globe className="h-12 w-12 text-primary mb-2" />
                     <h3 className="text-xl font-bold text-white">
-                    {translate({
-                    en: "Our Mission",
-                    fr: "Notre Mission"
-                  })}
+                      {translate({ en: "Our Mission", fr: "Notre Mission" })}
                     </h3>
                     <p className="text-gray-400">
-                      
-                      {translate({en: "To accelerate digital transformation across Africa by providing world-class cloud infrastructure and services that enable businesses to innovate and grow.", fr: "Accélérer la transformation numérique en Afrique en fournissant une infrastructure et des services cloud de classe mondiale qui permettent aux entreprises d'innover et de croître."})}
+                      {translate({
+                        en: "To accelerate digital transformation across Africa by providing world-class cloud infrastructure and services that enable businesses to innovate and grow.",
+                        fr: "Accélérer la transformation numérique en Afrique en fournissant une infrastructure et des services cloud de classe mondiale qui permettent aux entreprises d'innover et de croître."
+                      })}
                     </p>
                   </div>
                 </CardContent>
@@ -127,11 +127,13 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   <div className="flex flex-col items-center text-center space-y-3">
                     <Award className="h-12 w-12 text-primary mb-2" />
                     <h3 className="text-xl font-bold text-white">
-                    {translate({en: "Our Vision", fr: "Notre Vision"})}
+                      {translate({ en: "Our Vision", fr: "Notre Vision" })}
                     </h3>
                     <p className="text-gray-400">
-                      
-                      {translate({en: "To be the leading cloud provider in Africa, recognized for excellence, innovation, and commitment to customer success.", fr: "Devenir le principal fournisseur de cloud en Afrique, reconnu pour l'excellence, l'innovation et l'engagement envers le succès de nos clients."})}
+                      {translate({
+                        en: "To be the leading cloud provider in Africa, recognized for excellence, innovation, and commitment to customer success.",
+                        fr: "Devenir le principal fournisseur de cloud en Afrique, reconnu pour l'excellence, l'innovation et l'engagement envers le succès de nos clients."
+                      })}
                     </p>
                   </div>
                 </CardContent>
@@ -141,11 +143,13 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   <div className="flex flex-col items-center text-center space-y-3">
                     <Rocket className="h-12 w-12 text-primary mb-2" />
                     <h3 className="text-xl font-bold text-white">
-                    {translate({en: "Our Values", fr: "Nos Valeurs"})}
+                      {translate({ en: "Our Values", fr: "Nos Valeurs" })}
                     </h3>
                     <p className="text-gray-400">
-                      
-                      {translate({en: "Excellence, Innovation, Integrity, Customer Focus, and Collaboration guide everything we do at Heritage Cloud.", fr: "Excellence, Innovation, Intégrité, Orientation client et Collaboration guident toutes nos actions chez Heritage Cloud."})}
+                      {translate({
+                        en: "Excellence, Innovation, Integrity, Customer Focus, and Collaboration guide everything we do at Heritage Cloud.",
+                        fr: "Excellence, Innovation, Intégrité, Orientation client et Collaboration guident toutes nos actions chez Heritage Cloud."
+                      })}
                     </p>
                   </div>
                 </CardContent>
@@ -158,11 +162,16 @@ export default async function About({ params }: { params: Promise<{ lang: string
           <div className="container px-4 md:px-6">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-white">
-              {translate({en: "Our Leadership Team", fr: "Notre Équipe de Direction"})}
+                {translate({
+                  en: "Our Leadership Team",
+                  fr: "Notre Équipe de Direction"
+                })}
               </h2>
               <p className="max-w-[600px] mx-auto mt-3 text-gray-300">
-                
-                {translate({en: "Meet the experienced professionals leading Heritage Cloud", fr: "Découvrez les professionnels expérimentés qui dirigent Heritage Cloud"})}
+                {translate({
+                  en: "Meet the experienced professionals leading Heritage Cloud",
+                  fr: "Découvrez les professionnels expérimentés qui dirigent Heritage Cloud"
+                })}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -191,8 +200,7 @@ export default async function About({ params }: { params: Promise<{ lang: string
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">
-                  
-                  {translate({en: "Join Our Team", fr: "Rejoignez Notre Équipe"})}
+                  {translate({ en: "Join Our Team", fr: "Rejoignez Notre Équipe" })}
                 </h2>
                 <p className="max-w-[600px] text-foreground/70">
                   {translate({
@@ -205,8 +213,7 @@ export default async function About({ params }: { params: Promise<{ lang: string
                     target="_blank"
                     href="mailto:support@heritage.africa?subject=Let's Join Forces!">
                     <Button className="bg-primary hover:bg-primary/90 text-white">
-                      
-                      {translate({en: "Join forces", fr: "Nous rejoindre"})}
+                      {translate({ en: "Join forces", fr: "Nous rejoindre" })}
                     </Button>
                   </a>
                 </div>

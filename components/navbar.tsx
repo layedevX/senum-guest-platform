@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import services from "@/utils/services";
 import { LANG_COOKIE } from "@/utils/constants";
-import { getTranslateFn} from "@/utils/misc";
+import { getTranslateFn } from "@/utils/misc";
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
@@ -141,7 +141,6 @@ export default function Navbar() {
                   ? "text-primary"
                   : "text-foreground/80 hover:text-primary"
               }`}>
-              
               {translate({ en: "About", fr: "À propos" })}
             </Link>
             {/* <Link
@@ -176,7 +175,6 @@ export default function Navbar() {
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-white w-full">
-                
                 {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>
             </a>

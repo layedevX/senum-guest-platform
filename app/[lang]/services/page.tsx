@@ -39,8 +39,10 @@ export default async function Services({
                   {translate({ en: "Our Cloud Services", fr: "Nos Services Cloud" })}
                 </h1>
                 <p className="max-w-[900px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  
-                  {translate({ en: "Comprehensive cloud solutions to power your business", fr: "Des solutions cloud complètes pour dynamiser votre activité" })}
+                  {translate({
+                    en: "Comprehensive cloud solutions to power your business",
+                    fr: "Des solutions cloud complètes pour dynamiser votre activité"
+                  })}
                 </p>
               </div>
             </div>
@@ -48,12 +50,24 @@ export default async function Services({
             <Tabs defaultValue="all" className="w-full mb-4">
               <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 mb-8 relative bg-transparent z-10 overflow-hidden">
                 <div className="absolute inset-0 glass-bg-alt-2 -z-10"></div>
-                <TabsTrigger value="all">{translate({ en: "All", fr: "Tous" })}</TabsTrigger>
-                <TabsTrigger value="compute">{translate({ en: "Compute", fr: "Calcul" })}</TabsTrigger>
-                <TabsTrigger value="storage">{translate({ en: "Storage", fr: "Stockage" })}</TabsTrigger>
-                <TabsTrigger value="data">{translate({ en: "Data", fr: "Données" })}</TabsTrigger>
-                <TabsTrigger value="applications">{translate({ en: "Applications", fr: "Applications" })}</TabsTrigger>
-                <TabsTrigger value="security">{translate({ en: "Security", fr: "Sécurité" })}</TabsTrigger>
+                <TabsTrigger value="all">
+                  {translate({ en: "All", fr: "Tous" })}
+                </TabsTrigger>
+                <TabsTrigger value="compute">
+                  {translate({ en: "Compute", fr: "Calcul" })}
+                </TabsTrigger>
+                <TabsTrigger value="storage">
+                  {translate({ en: "Storage", fr: "Stockage" })}
+                </TabsTrigger>
+                <TabsTrigger value="data">
+                  {translate({ en: "Data", fr: "Données" })}
+                </TabsTrigger>
+                <TabsTrigger value="applications">
+                  {translate({ en: "Applications", fr: "Applications" })}
+                </TabsTrigger>
+                <TabsTrigger value="security">
+                  {translate({ en: "Security", fr: "Sécurité" })}
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="all" className="w-full">
@@ -86,19 +100,19 @@ export default async function Services({
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">
-                  
                   {translate({ en: "Ready to Get Started?", fr: "Prêt à commencer ?" })}
                 </h2>
                 <p className="max-w-[600px] text-gray-800">
-                  
-                  {translate({ en: "Contact our team to learn more about our cloud services and how they can benefit your business.", fr: "Échangez avec notre équipe pour découvrir les avantages de nos services cloud pour votre entreprise." })}
+                  {translate({
+                    en: "Contact our team to learn more about our cloud services and how they can benefit your business.",
+                    fr: "Échangez avec notre équipe pour découvrir les avantages de nos services cloud pour votre entreprise."
+                  })}
                 </p>
                 <div className="pt-4">
                   <a
                     href="mailto:support@heritage.africa?subject=Cloud Service Enquiry"
                     target="_blank">
                     <Button className="bg-primary hover:bg-primary/90">
-                      
                       {translate({ en: "Contact Sales", fr: "Nous contacter" })}
                     </Button>
                   </a>
