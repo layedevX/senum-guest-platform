@@ -45,22 +45,24 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   Continent
                 </h1>
                 <p className="text-foreground/65 md:text-xl">
-                  Powerful, scalable, and secure cloud infrastructure designed for African
-                  businesses.
+                  {translate({
+                    en: "Powerful, scalable, and secure cloud infrastructure designed for African businesses.",
+                    fr: "Une infrastructure cloud puissante, évolutive et sécurisée conçue pour les entreprises africaines."
+                  })}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a href="https://origins.heritage.africa">
                     <Button
                       size="lg"
                       className="bg-primary hover:bg-primary/90 text-white w-full">
-                      Access Cloud
+                      {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
                     </Button>
                   </a>
                   <Link href="/services">
                     <Button
                       size="lg"
                       className="bg-white hover:bg-gray-100 text-black border border-gray-300 w-full">
-                      Explore Services
+                      {translate({ en: "Explore Services", fr: "Explorer nos services" })}
                     </Button>
                   </Link>
                 </div>
@@ -87,12 +89,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   {translate({ en: "Our Cloud Services", fr: "Nos Services Cloud" })}
                 </h2>
                 <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Comprehensive cloud solutions to power your business
+                  {translate({
+                    en: "Comprehensive cloud solutions to power your business",
+                    fr: "Des solutions cloud complètes pour dynamiser votre activité"
+                  })}
                 </p>
                 <div className="pt-4">
                   <Link href="/services">
                     <Button className="bg-primary hover:bg-primary/90 text-white">
-                      View All Services
+                      {translate({
+                        en: "View All Services",
+                        fr: "Afficher tous les services"
+                      })}
                     </Button>
                   </Link>
                 </div>
@@ -119,7 +127,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                         variant="ghost"
                         size="sm"
                         className="w-full text-gray-300 hover:text-white">
-                        Learn More
+                        {translate({ en: "Learn More", fr: "En savoir plus" })}
                       </Button>
                     </Link>
                   </CardFooter>
@@ -131,7 +139,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               <div className="container px-4 md:px-6 relative z-10">
                 <div className="text-center mb-[10px]">
                   <h2 className="text-2xl font-light text-black">
-                    Powered By Leading Technologies
+                    {translate({
+                      en: "Powered By Leading Technologies",
+                      fr: "Propulsé par des technologies de pointe"
+                    })}
                   </h2>
                 </div>
                 <div className="flex justify-center items-center gap-4 md:gap-6 flex-nowrap overflow-x-auto py-4">
@@ -165,10 +176,13 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-foreground">
-                  Industry Solutions
+                  {translate({ en: "Industry Solutions", fr: "Solutions sectorielles" })}
                 </h2>
                 <p className="max-w-[900px] text-foreground/70 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Tailored cloud solutions for various industries
+                  {translate({
+                    en: "Tailored cloud solutions for various industries",
+                    fr: "Solutions cloud personnalisées pour divers secteurs d'activité"
+                  })}
                 </p>
               </div>
             </div>
@@ -177,41 +191,56 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <div className="flex items-center gap-3 mb-2">
                   <Building2 className="h-8 w-8 text-primary" />
                   <h3 className="text-xl font-bold text-foreground">
-                    Financial Services
+                    {translate({ en: "Financial Services", fr: "Services financiers" })}
                   </h3>
                 </div>
                 <p className="text-foreground/70">
-                  Secure, compliant cloud infrastructure for banking, insurance, and
-                  fintech companies.
+                  {translate({
+                    en: "Secure, compliant cloud infrastructure for banking, insurance, and fintech companies.",
+                    fr: "Infrastructure cloud sécurisée et conforme pour les banques, les compagnies d'assurance et les entreprises fintech."
+                  })}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 mb-2">
                   <Hospital className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">Healthcare</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    {translate({ en: "Healthcare", fr: "Santé" })}
+                  </h3>
                 </div>
                 <p className="text-foreground/70">
-                  HIPAA-compliant solutions for healthcare providers and medical research.
+                  {translate({
+                    en: "HIPAA-compliant solutions for healthcare providers and medical research.",
+                    fr: "Solutions conformes aux normes HIPAA pour les prestataires de soins de santé et la recherche médicale."
+                  })}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 mb-2">
                   <Landmark className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">Government</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    {translate({ en: "Government", fr: "Gouvernement" })}
+                  </h3>
                 </div>
                 <p className="text-foreground/70">
-                  Secure and reliable cloud services for government agencies and public
-                  sector.
+                  {translate({
+                    en: "Secure and reliable cloud services for government agencies and public sector.",
+                    fr: "Services cloud sécurisés et fiables pour les agences gouvernementales et le secteur public."
+                  })}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 mb-2">
                   <GraduationCap className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">Education</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    {translate({ en: "Education", fr: "Education" })}
+                  </h3>
                 </div>
                 <p className="text-foreground/70">
-                  Scalable solutions for educational institutions and e-learning
-                  platforms.
+                  {translate({
+                    en: "Scalable solutions for educational institutions and e-learning platforms.",
+                    fr: "Solutions évolutives pour les établissements d'enseignement et les plateformes d'apprentissage en ligne."
+                  })}
                 </p>
               </div>
             </div>
