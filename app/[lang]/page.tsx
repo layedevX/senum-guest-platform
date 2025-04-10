@@ -33,16 +33,38 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <div className="flex flex-col items-center text-center">
               <div className="max-w-3xl mx-auto space-y-4 mb-8">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-foreground">
-                  <span className="gradient-text-primary animate-gradient-move">
-                    Cloud
-                  </span>{" "}
-                  Solutions
+                  {lang === "en" ? (
+                    <>
+                      <span className="gradient-text-primary animate-gradient-move">
+                        {translate({ en: "Cloud", fr: "Cloud" })}
+                      </span>{" "}
+                      {translate({ en: "Solutions", fr: "Solutions" })}
+                    </>
+                  ) : (
+                    <>
+                      {translate({ en: "Cloud", fr: "Solutions" })}{" "}
+                      <span className="gradient-text-primary animate-gradient-move">
+                        {translate({ en: "Solutions", fr: "Cloud" })}
+                      </span>
+                    </>
+                  )}
                   <br />
-                  for an{" "}
-                  <span className="gradient-text-secondary animate-gradient-move">
-                    Emerging
-                  </span>{" "}
-                  Continent
+                  {translate({ en: "for an", fr: "pour un" })}{" "}
+                  {lang === "en" ? (
+                    <>
+                      <span className="gradient-text-secondary animate-gradient-move">
+                        {translate({ en: "Emerging", fr: "Continent en" })}
+                      </span>{" "}
+                      {translate({ en: "Continent", fr: "Émergence" })}
+                    </>
+                  ) : (
+                    <>
+                      {translate({ en: "Emerging", fr: "Continent en" })}{" "}
+                      <span className="gradient-text-secondary animate-gradient-move">
+                        {translate({ en: "Continent", fr: "Émergence" })}
+                      </span>
+                    </>
+                  )}
                 </h1>
                 <p className="text-foreground/65 md:text-xl">
                   {translate({
