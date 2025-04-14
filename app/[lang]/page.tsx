@@ -36,32 +36,26 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   {lang === "en" ? (
                     <>
                       <span className="gradient-text-primary animate-gradient-move">
-                        {translate({ en: "Cloud", fr: "Cloud" })}
+                        Cloud
                       </span>{" "}
-                      {translate({ en: "Solutions", fr: "Solutions" })}
+                      Solutions
+                      <br />
+                      for an{" "}
+                      <span className="gradient-text-secondary animate-gradient-move">
+                        Emerging
+                      </span>{" "}
+                      Continent
                     </>
                   ) : (
                     <>
-                      {translate({ en: "Cloud", fr: "Solutions" })}{" "}
+                      Solutions{" "}
                       <span className="gradient-text-primary animate-gradient-move">
-                        {translate({ en: "Solutions", fr: "Cloud" })}
+                        Cloud
                       </span>
-                    </>
-                  )}
-                  <br />
-                  {translate({ en: "for an", fr: "pour un" })}{" "}
-                  {lang === "en" ? (
-                    <>
+                      <br />
+                      pour un Continent en{" "}
                       <span className="gradient-text-secondary animate-gradient-move">
-                        {translate({ en: "Emerging", fr: "Continent en" })}
-                      </span>{" "}
-                      {translate({ en: "Continent", fr: "Émergence" })}
-                    </>
-                  ) : (
-                    <>
-                      {translate({ en: "Emerging", fr: "Continent en" })}{" "}
-                      <span className="gradient-text-secondary animate-gradient-move">
-                        {translate({ en: "Continent", fr: "Émergence" })}
+                        Émergence
                       </span>
                     </>
                   )}
