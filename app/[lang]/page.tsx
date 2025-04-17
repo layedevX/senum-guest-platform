@@ -12,6 +12,7 @@ import {
 import Navbar from "@/components/navbar";
 import { getLang, getTranslateFn, partners } from "@/utils/misc";
 import services from "@/utils/services";
+import { getTranslations } from "next-intl/server";
 
 export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
@@ -22,6 +23,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const lang = getLang(langParam);
 
   const translate = getTranslateFn(lang);
+  const t = await getTranslations();
 
   return (
     <div className="flex min-h-screen flex-col bg-white relative z-10">
@@ -123,7 +125,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-              {services.slice(0, 6).map(({ id, title, Icon, description }) => (
+              {services.slice(0, 6).map(({ id, Icon }) => (
                 <Card
                   key={id}
                   className="flex flex-col h-full relative z-10 bg-transparent border-none rounded-md overflow-hidden shadow-lg">
@@ -131,11 +133,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <CardHeader className="flex flex-row items-center gap-4">
                     <Icon className="text-primary" />
                     <div className="grid gap-1">
-                      <CardTitle className="text-white">{title}</CardTitle>
+                      <CardTitle className="text-white">{t(`${id}.title`)}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
-                    <p className="text-sm text-gray-400">{description}</p>
+                    <p className="text-sm text-gray-400">{t(`${id}.description`)}</p>
                   </CardContent>
                   <CardFooter className="pt-2">
                     <Link href={`/services/${id}`} className="w-full">
@@ -270,7 +272,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-[50px]">
                   <p className="max-w-[800px] text-2xl font-light text-black">
                     {translate({
-                      en: "Ifrastructure and operations meeting international security and compliance standards",
+                      en: "Infrastructure and operations meeting international security and compliance standards",
                       fr: "Infrastructures et des opérations conformes aux normes internationales de sécurité et de conformité"
                     })}
                   </p>

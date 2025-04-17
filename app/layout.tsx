@@ -13,13 +13,19 @@ export const metadata: Metadata = {
   icons: [{ url: "/favicon.png", rel: "shortcut icon" }]
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params
+}: {
+  children: React.ReactNode;
+
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <Footer />
-      </body>
+    <html lang={lang}>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

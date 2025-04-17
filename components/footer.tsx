@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <div className="relative footer">
       <div className="bg-black/90 absolute left-0 right-0 top-0 bottom-0 -z-10"></div>
-      <div className="flex flex-col gap-y-[50px] lg:flex-row justify-between lg:gap-x-[100px] md:gap-x-[70px] p-[20px]">
+      <div className="max-w-[1200px] mx-auto flex flex-col gap-y-[50px] lg:flex-row justify-between lg:gap-x-[100px] md:gap-x-[70px] p-[20px]">
         <div className="max-w-[300px] flex flex-col gap-x-1">
           <p className="text-xl text-white font-semibold mb-2">
             {translate({ en: "Subscribe", fr: "S'abonner" })}
@@ -60,28 +60,30 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="h-[65px] w-full bg-black/10 p-[10px] flex items-center text-sm gap-[20px]">
-        <Image alt="accel-tech" src="/accel-logo.png" width={167} height={50} />
-        <a
-          href="https://www.accel-tech.net"
-          target="_blank"
-          className="text-white/90 hover:text-white/100">
-          {translate({ en: "About", fr: "À propos" })}
-        </a>
-        <a
-          href="https://www.accel-tech.net"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white/90 hover:text-white/100">
-          {translate({ en: "Services", fr: "Services" })}
-        </a>
-        <a
-          href="https://www.accel-tech.net"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white/90 hover:text-white/100">
-          {translate({ en: "News", fr: "Nouveautés" })}
-        </a>
+      <div className="h-[65px] w-full bg-black/10 ">
+        <div className="max-w-[1200px] mx-auto flex items-center text-sm gap-[20px] p-[10px]">
+          <Image alt="accel-tech" src="/accel-logo.png" width={167} height={50} />
+          <a
+            href="https://www.accel-tech.net"
+            target="_blank"
+            className="text-white/90 hover:text-white/100">
+            {translate({ en: "About", fr: "À propos" })}
+          </a>
+          <a
+            href="https://www.accel-tech.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/90 hover:text-white/100">
+            {translate({ en: "Services", fr: "Services" })}
+          </a>
+          <a
+            href="https://www.accel-tech.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/90 hover:text-white/100">
+            {translate({ en: "News", fr: "Nouveautés" })}
+          </a>
+        </div>
       </div>
     </div>
   );

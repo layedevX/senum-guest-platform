@@ -13,10 +13,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
+import { getTranslations } from "next-intl/server";
 
-const service = services.find(
-  (service) => service.id === "automation-platform-as-a-service"
-)!;
+const serviceId = "automation-platform-as-a-service";
+
+const service = services.find((service) => service.id === serviceId)!;
 
 const features = [
   "Infrastructure automation",
@@ -37,7 +38,7 @@ const platformOptions = [
   {
     id: "infrastructure-automation",
     title: "Infrastructure Automation",
-    description: "Platform for automating infrastructure provisioning and management.",
+    description: "Platform for automating infrastructure provisioning and management",
     icon: <ServerCog className="h-10 w-10 text-primary" />,
     features: [
       "Infrastructure as Code",
@@ -50,7 +51,7 @@ const platformOptions = [
   {
     id: "configuration-management",
     title: "Configuration Management",
-    description: "Platform for automating system configuration and maintenance.",
+    description: "Platform for automating system configuration and maintenance",
     icon: <Cog className="h-10 w-10 text-primary" />,
     features: [
       "Configuration as Code",
@@ -63,7 +64,7 @@ const platformOptions = [
   {
     id: "workflow-automation",
     title: "Workflow Automation",
-    description: "Platform for automating complex IT and business workflows.",
+    description: "Platform for automating complex IT and business workflows",
     icon: <GitBranch className="h-10 w-10 text-primary" />,
     features: [
       "Visual workflow designer",
@@ -76,7 +77,7 @@ const platformOptions = [
   {
     id: "self-service-automation",
     title: "Self-Service Automation",
-    description: "Platform for enabling self-service IT operations.",
+    description: "Platform for enabling self-service IT operations",
     icon: <ShoppingCart className="h-10 w-10 text-primary" />,
     features: [
       "Service catalog",
@@ -92,22 +93,13 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export async function generateMetadata({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-
-  return { title: service.title, description: service.description };
+export async function generateMetadata({}: {}): Promise<Metadata> {
+  const t = await getTranslations(serviceId);
+  return { title: t("title") };
 }
 
-export default async function ServiceDetail({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}) {
-  const { lang } = await params;
+export default async function ServiceDetail({ params }: { params: Promise<{}> }) {
+  const t = await getTranslations(serviceId);
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -118,7 +110,7 @@ export default async function ServiceDetail({
             href="/services"
             className="inline-flex items-center text-sm font-medium text-primary mb-6 hover:underline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
+            {t("Back to Services")}
           </Link>
 
           <div className="flex flex-col md:flex-row gap-8 my-[50px]">
@@ -126,11 +118,11 @@ export default async function ServiceDetail({
               <service.Icon className="h-12 w-12 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h1 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h1>
-              <p className="text-lg text-foreground/50 mb-6">{service.longDescription}</p>
+              <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
+              <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
               <a href="https://origins.heritage.africa">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
-                  Access {service.title}
+                  {t("Access")} {t("title")}
                 </Button>
               </a>
             </div>
@@ -138,18 +130,18 @@ export default async function ServiceDetail({
 
           <Tabs defaultValue="features" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-4">
-              <TabsTrigger value="features">Features</TabsTrigger>
-              <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
+              <TabsTrigger value="features">{t("Features")}</TabsTrigger>
+              <TabsTrigger value="use-cases">{t("Use Cases")}</TabsTrigger>
             </TabsList>
             <TabsContent
               value="features"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Key Features</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Key Features")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                    <span className="text-gray-600">{feature}</span>
+                    <span className="text-gray-600">{t(feature)}</span>
                   </div>
                 ))}
               </div>
@@ -157,14 +149,14 @@ export default async function ServiceDetail({
             <TabsContent
               value="use-cases"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Common Use Cases</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Common Use Cases")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((useCase, index) => (
                   <Card key={index} className="bg-white">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                        <span className="text-gray-700">{useCase}</span>
+                        <span className="text-gray-700">{t(useCase)}</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -175,7 +167,9 @@ export default async function ServiceDetail({
 
           {/*  Section */}
           <div className="mt-12">
-            <p className="text-lg text-foreground/80 mb-6">Automation Platform Options</p>
+            <p className="text-lg text-foreground/80 mb-6">
+              {t("Automation Platform Options")}
+            </p>
 
             <div className="flex flex-row flex-wrap gap-4 mb-8">
               {platformOptions.map((option) => (
@@ -190,7 +184,7 @@ export default async function ServiceDetail({
                         {option.description}
                       </p>
                       <div className="text-sm mb-3 w-full">
-                        <h5 className="font-medium mb-2">Key Features:</h5>
+                        <h5 className="font-medium mb-2">{t("Key Features")}:</h5>
                         <ul className="space-y-1">
                           {option.features.slice(0, 3).map((feature, index) => (
                             <li key={index} className="flex items-start gap-2">

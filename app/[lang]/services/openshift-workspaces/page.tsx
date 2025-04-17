@@ -6,8 +6,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
+import { getTranslations } from "next-intl/server";
+import { getLang, getTranslateFn } from "@/utils/misc";
 
-const service = services.find((service) => service.id === "openshift-workspaces")!;
+const serviceId = "openshift-workspaces";
+const service = services.find((service) => service.id === serviceId)!;
 
 const features = [
   "Fully managed OpenShift environment",
@@ -28,7 +31,7 @@ const workspaceOptions = [
   {
     id: "developer",
     title: "Developer Workspace",
-    description: "Basic workspace for individual developers with 4 vCPU and 8GB RAM.",
+    description: "Basic workspace for individual developers with 4 vCPU and 8GB RAM",
     icon: <Code className="h-10 w-10 text-primary" />,
     features: [
       "4 vCPU cores",
@@ -42,7 +45,7 @@ const workspaceOptions = [
   {
     id: "team",
     title: "Team Workspace",
-    description: "Collaborative workspace for small teams with 8 vCPU and 16GB RAM.",
+    description: "Collaborative workspace for small teams with 8 vCPU and 16GB RAM",
     icon: <Users className="h-10 w-10 text-primary" />,
     features: [
       "8 vCPU cores",
@@ -56,7 +59,7 @@ const workspaceOptions = [
   {
     id: "enterprise",
     title: "Enterprise Workspace",
-    description: "Advanced workspace for large teams with 16 vCPU and 32GB RAM.",
+    description: "Advanced workspace for large teams with 16 vCPU and 32GB RAM",
     icon: <Building2 className="h-10 w-10 text-primary" />,
     features: [
       "16 vCPU cores",
@@ -71,7 +74,7 @@ const workspaceOptions = [
   {
     id: "custom",
     title: "Custom Workspace",
-    description: "Tailored workspace configuration based on your specific requirements.",
+    description: "Tailored workspace configuration based on your specific requirements",
     icon: <Settings className="h-10 w-10 text-primary" />,
     features: [
       "Custom CPU allocation",
@@ -88,22 +91,13 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export async function generateMetadata({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-
-  return { title: service.title, description: service.description };
+export async function generateMetadata({}: {}): Promise<Metadata> {
+  const t = await getTranslations(serviceId);
+  return { title: t("title") };
 }
 
-export default async function ServiceDetail({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}) {
-  const { lang } = await params;
+export default async function ServiceDetail({ params }: { params: Promise<{}> }) {
+  const t = await getTranslations(serviceId);
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -114,7 +108,7 @@ export default async function ServiceDetail({
             href="/services"
             className="inline-flex items-center text-sm font-medium text-primary mb-6 hover:underline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
+            {t("Back to Services")}
           </Link>
 
           <div className="flex flex-col md:flex-row gap-8 my-[50px]">
@@ -122,11 +116,11 @@ export default async function ServiceDetail({
               <service.Icon className="h-12 w-12 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h1 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h1>
-              <p className="text-lg text-foreground/50 mb-6">{service.longDescription}</p>
+              <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
+              <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
               <a href="https://origins.heritage.africa">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
-                  Access {service.title}
+                  {t("Access")} {t("title")}
                 </Button>
               </a>
             </div>
@@ -134,18 +128,18 @@ export default async function ServiceDetail({
 
           <Tabs defaultValue="features" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-4">
-              <TabsTrigger value="features">Features</TabsTrigger>
-              <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
+              <TabsTrigger value="features">{t("Features")}</TabsTrigger>
+              <TabsTrigger value="use-cases">{t("Use Cases")}</TabsTrigger>
             </TabsList>
             <TabsContent
               value="features"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Key Features</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Key Features")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                    <span className="text-gray-600">{feature}</span>
+                    <span className="text-gray-600">{t(feature)}</span>
                   </div>
                 ))}
               </div>
@@ -153,14 +147,14 @@ export default async function ServiceDetail({
             <TabsContent
               value="use-cases"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Common Use Cases</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Common Use Cases")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((useCase, index) => (
                   <Card key={index} className="bg-white">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                        <span className="text-gray-700">{useCase}</span>
+                        <span className="text-gray-700">{t(useCase)}</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -172,7 +166,7 @@ export default async function ServiceDetail({
           {/*  Section */}
           <div className="mt-12">
             <p className="text-lg text-foreground/80 mb-6">
-              OpenShift Workspaces Options
+              {t("OpenShift Workspaces Options")}
             </p>
 
             <div className="flex flex-row flex-wrap gap-4 mb-8">
@@ -182,18 +176,18 @@ export default async function ServiceDetail({
                     <div className="flex flex-col items-center">
                       <div className="mb-3">{option.icon}</div>
                       <h4 className="font-medium text-lg text-center mb-2">
-                        {option.title}
+                        {t(option.title)}
                       </h4>
                       <p className="text-sm text-foreground/70 mb-3 text-center">
-                        {option.description}
+                        {t(option.description)}
                       </p>
                       <div className="text-sm mb-3 w-full">
-                        <h5 className="font-medium mb-2">Key Features:</h5>
+                        <h5 className="font-medium mb-2">{t("Key Features")}:</h5>
                         <ul className="space-y-1">
                           {option.features.slice(0, 3).map((feature, index) => (
                             <li key={index} className="flex items-start gap-2">
                               <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                              <span>{feature}</span>
+                              <span>{t(feature)}</span>
                             </li>
                           ))}
                         </ul>

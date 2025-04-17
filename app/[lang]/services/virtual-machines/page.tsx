@@ -7,8 +7,10 @@ import { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-const service = services.find((service) => service.id === "virtual-machines")!;
+const serviceId = "virtual-machines";
+const service = services.find((service) => service.id === serviceId)!;
 
 const features = [
   "Flexible VM configurations",
@@ -29,29 +31,28 @@ const vmOptions = [
   {
     id: "general-purpose",
     title: "General Purpose",
-    description: "Balanced CPU and memory for a wide range of workloads.",
+    description: "Balanced CPU and memory for a wide range of workloads",
     specs: "4 vCPU, 16 GB RAM",
     icon: "/placeholder.svg?height=80&width=80"
   },
   {
     id: "compute-optimized",
     title: "Compute Optimized",
-    description: "High CPU performance for compute-intensive workloads.",
+    description: "High CPU performance for compute-intensive workloads",
     specs: "8 vCPU, 16 GB RAM",
     icon: "/placeholder.svg?height=80&width=80"
   },
   {
     id: "memory-optimized",
     title: "Memory Optimized",
-    description: "High memory capacity for memory-intensive workloads.",
+    description: "High memory capacity for memory-intensive workloads",
     specs: "4 vCPU, 32 GB RAM",
     icon: "/placeholder.svg?height=80&width=80"
   },
   {
     id: "storage-optimized",
     title: "Storage Optimized",
-    description:
-      "High storage capacity and I/O performance for data-intensive workloads.",
+    description: "High storage capacity and I/O performance for data-intensive workloads",
     specs: "4 vCPU, 16 GB RAM, 2 TB NVMe SSD",
     icon: "/placeholder.svg?height=80&width=80"
   }
@@ -72,22 +73,13 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export async function generateMetadata({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-
-  return { title: service.title, description: service.description };
+export async function generateMetadata({}: {}): Promise<Metadata> {
+  const t = await getTranslations(serviceId);
+  return { title: t("title") };
 }
 
-export default async function ServiceDetail({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}) {
-  const { lang } = await params;
+export default async function ServiceDetail({ params }: { params: Promise<{}> }) {
+  const t = await getTranslations(serviceId);
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -98,7 +90,7 @@ export default async function ServiceDetail({
             href="/services"
             className="inline-flex items-center text-sm font-medium text-primary mb-6 hover:underline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
+            {t("Back to Services")}
           </Link>
 
           <div className="flex flex-col md:flex-row gap-8 my-[50px]">
@@ -106,11 +98,11 @@ export default async function ServiceDetail({
               <service.Icon className="h-12 w-12 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h1 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h1>
-              <p className="text-lg text-foreground/50 mb-6">{service.longDescription}</p>
+              <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
+              <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
               <a href="https://origins.heritage.africa">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
-                  Access {service.title}
+                  {t("Access")} {t("title")}
                 </Button>
               </a>
             </div>
@@ -118,18 +110,18 @@ export default async function ServiceDetail({
 
           <Tabs defaultValue="features" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-4">
-              <TabsTrigger value="features">Features</TabsTrigger>
-              <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
+              <TabsTrigger value="features">{t("Features")}</TabsTrigger>
+              <TabsTrigger value="use-cases">{t("Use Cases")}</TabsTrigger>
             </TabsList>
             <TabsContent
               value="features"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Key Features</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Key Features")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                    <span className="text-gray-600">{feature}</span>
+                    <span className="text-gray-600">{t(feature)}</span>
                   </div>
                 ))}
               </div>
@@ -137,14 +129,14 @@ export default async function ServiceDetail({
             <TabsContent
               value="use-cases"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Common Use Cases</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Common Use Cases")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((useCase, index) => (
                   <Card key={index} className="bg-white">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                        <span className="text-gray-700">{useCase}</span>
+                        <span className="text-gray-700">{t(useCase)}</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -156,7 +148,7 @@ export default async function ServiceDetail({
           {/* VM Configuration Section */}
           <div className="mt-12">
             {/* <h3 className="text-xl font-bold mb-4 text-foreground">Sizing Options</h3> */}
-            <p className="text-lg text-foreground/80 mb-6">Sizing Options</p>
+            <p className="text-lg text-foreground/80 mb-6">{t("Sizing Options")}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {vmOptions.map((option) => (
                 <Card key={option.id} className="border bg-white">
@@ -174,7 +166,7 @@ export default async function ServiceDetail({
             </div>
 
             {/* <h3 className="text-xl font-bold mb-4 text-foreground">Operating Systems</h3> */}
-            <p className="text-lg text-foreground/80 mb-6">Operating Systems</p>
+            <p className="text-lg text-foreground/80 mb-6">{t("Operating Systems")}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {operatingSystems.map((os) => (
                 <Card key={os.id} className="border bg-white">

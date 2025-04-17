@@ -7,8 +7,10 @@ import { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-const service = services.find((service) => service.id === "database-as-a-service")!;
+const serviceId = "database-as-a-service";
+const service = services.find((service) => service.id === serviceId)!;
 
 const features = [
   "Automated backups and point-in-time recovery",
@@ -30,37 +32,37 @@ const databaseOptions = [
   {
     id: "mysql",
     title: "MySQL",
-    description: "Fully managed MySQL database service.",
+    description: "Fully managed MySQL database service",
     icon: "/db/mysql-logo.png"
   },
   {
     id: "postgresql",
     title: "PostgreSQL",
-    description: "Fully managed PostgreSQL database service.",
+    description: "Fully managed PostgreSQL database service",
     icon: "/db/postgresql-logo.png"
   },
   {
     id: "mongodb",
     title: "MongoDB",
-    description: "Fully managed MongoDB database service.",
+    description: "Fully managed MongoDB database service",
     icon: "/db/mongodb-logo.png"
   },
   {
     id: "mariadb",
     title: "MariaDB",
-    description: "Fully managed MariaDB database service.",
+    description: "Fully managed MariaDB database service",
     icon: "/db/mariadb-logo.png"
   },
   {
     id: "redis",
     title: "Redis",
-    description: "Fully managed Redis in-memory data store.",
+    description: "Fully managed Redis in-memory data store",
     icon: "/db/redis-logo.png"
   },
   {
     id: "elasticsearch",
     title: "Elasticsearch",
-    description: "Fully managed Elasticsearch service for search and analytics.",
+    description: "Fully managed Elasticsearch service for search and analytics",
     icon: "/db/elasticsearch-logo.png"
   }
 ];
@@ -69,22 +71,12 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export async function generateMetadata({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-
-  return { title: service.title, description: service.description };
+export async function generateMetadata({}: {}): Promise<Metadata> {
+  const t = await getTranslations(serviceId);
+  return { title: t("title") };
 }
-
-export default async function ServiceDetail({
-  params
-}: {
-  params: Promise<{ lang: string }>;
-}) {
-  const { lang } = await params;
+export default async function ServiceDetail({ params }: { params: Promise<{}> }) {
+  const t = await getTranslations(serviceId);
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -95,7 +87,7 @@ export default async function ServiceDetail({
             href="/services"
             className="inline-flex items-center text-sm font-medium text-primary mb-6 hover:underline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
+            {t("Back to Services")}
           </Link>
 
           <div className="flex flex-col md:flex-row gap-8 my-[50px]">
@@ -103,11 +95,11 @@ export default async function ServiceDetail({
               <service.Icon className="h-12 w-12 text-primary" />
             </div>
             <div className="md:w-3/4">
-              <h1 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h1>
-              <p className="text-lg text-foreground/50 mb-6">{service.longDescription}</p>
+              <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
+              <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
               <a href="https://origins.heritage.africa">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
-                  Access {service.title}
+                  {t("Access")} {t("title")}
                 </Button>
               </a>
             </div>
@@ -115,18 +107,18 @@ export default async function ServiceDetail({
 
           <Tabs defaultValue="features" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-4">
-              <TabsTrigger value="features">Features</TabsTrigger>
-              <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
+              <TabsTrigger value="features">{t("Features")}</TabsTrigger>
+              <TabsTrigger value="use-cases">{t("Use Cases")}</TabsTrigger>
             </TabsList>
             <TabsContent
               value="features"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Key Features</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Key Features")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                    <span className="text-gray-600">{feature}</span>
+                    <span className="text-gray-600">{t(feature)}</span>
                   </div>
                 ))}
               </div>
@@ -134,14 +126,14 @@ export default async function ServiceDetail({
             <TabsContent
               value="use-cases"
               className="p-4 border rounded-lg glass-bg-alt-2">
-              <h3 className="text-xl font-light mb-4 hidden">Common Use Cases</h3>
+              <h3 className="text-xl font-light mb-4 hidden">{t("Common Use Cases")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((useCase, index) => (
                   <Card key={index} className="bg-white">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                        <span className="text-gray-700">{useCase}</span>
+                        <span className="text-gray-700">{t(useCase)}</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -152,7 +144,7 @@ export default async function ServiceDetail({
 
           {/*  Section */}
           <div className="mt-12">
-            <p className="text-lg text-foreground/80 mb-6">Database Options</p>
+            <p className="text-lg text-foreground/80 mb-6">{t("Database Options")}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {databaseOptions.map((option) => (
                 <Card key={option.id} className="border bg-white">

@@ -8,6 +8,7 @@ import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Metadata } from "next";
 import { LucideProps } from "lucide-react";
 import { getLang, getTranslateFn } from "@/utils/misc";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = { title: "Services" };
 
@@ -24,6 +25,7 @@ export default async function Services({
   const lang = getLang(langParam);
 
   const translate = getTranslateFn(lang);
+  const t = await getTranslations();
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -38,7 +40,7 @@ export default async function Services({
                 <h1 className="text-3xl font-bold tracking-tighter md:text-5xl">
                   {translate({ en: "Our Cloud Services", fr: "Nos Services Cloud" })}
                 </h1>
-                <p className="max-w-[900px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   {translate({
                     en: "Comprehensive cloud solutions to power your business",
                     fr: "Des solutions cloud complètes pour dynamiser votre activité"
@@ -72,8 +74,14 @@ export default async function Services({
 
               <TabsContent value="all" className="w-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {services.map((props) => (
-                    <ServiceCard key={props.id} {...props} />
+                  {services.map((service) => (
+                    <ServiceCard
+                      key={service.id}
+                      id={service.id}
+                      Icon={service.Icon}
+                      title={t(`${service.id}.title`)}
+                      description={t(`${service.id}.description`)}
+                    />
                   ))}
                 </div>
               </TabsContent>
@@ -84,8 +92,14 @@ export default async function Services({
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {services
                         .filter((service) => service.category === category)
-                        .map((props) => (
-                          <ServiceCard key={props.id} {...props} />
+                        .map((service) => (
+                          <ServiceCard
+                            key={service.id}
+                            id={service.id}
+                            Icon={service.Icon}
+                            title={t(`${service.id}.title`)}
+                            description={t(`${service.id}.description`)}
+                          />
                         ))}
                     </div>
                   </TabsContent>
