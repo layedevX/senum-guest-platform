@@ -6,38 +6,85 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
+import Image from "next/image";
+
+const service = services.find((service) => service.id === "database-as-a-service")!;
+
+const features = [
+  "Automated backups and point-in-time recovery",
+  "High availability and failover",
+  "Performance monitoring and optimization",
+  "Automatic scaling",
+  "Security and compliance",
+  "24/7 expert support"
+];
+
+const useCases = [
+  "Web and mobile applications",
+  "E-commerce platforms",
+  "Content management systems",
+  "Business intelligence and analytics"
+];
+
+const databaseOptions = [
+  {
+    id: "mysql",
+    title: "MySQL",
+    description: "Fully managed MySQL database service.",
+    icon: "/db/mysql-logo.png"
+  },
+  {
+    id: "postgresql",
+    title: "PostgreSQL",
+    description: "Fully managed PostgreSQL database service.",
+    icon: "/db/postgresql-logo.png"
+  },
+  {
+    id: "mongodb",
+    title: "MongoDB",
+    description: "Fully managed MongoDB database service.",
+    icon: "/db/mongodb-logo.png"
+  },
+  {
+    id: "mariadb",
+    title: "MariaDB",
+    description: "Fully managed MariaDB database service.",
+    icon: "/db/mariadb-logo.png"
+  },
+  {
+    id: "redis",
+    title: "Redis",
+    description: "Fully managed Redis in-memory data store.",
+    icon: "/db/redis-logo.png"
+  },
+  {
+    id: "elasticsearch",
+    title: "Elasticsearch",
+    description: "Fully managed Elasticsearch service for search and analytics.",
+    icon: "/db/elasticsearch-logo.png"
+  }
+];
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fr" }];
+}
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{ serviceId: string }>;
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
-  const { serviceId } = await params;
+  const { lang } = await params;
 
-  const service = services.find((service) => service.id === serviceId);
-
-  return { title: service?.title || "Not Found", description: service?.description };
+  return { title: service.title, description: service.description };
 }
 
 export default async function ServiceDetail({
   params
 }: {
-  params: Promise<{ serviceId: string }>;
+  params: Promise<{ lang: string }>;
 }) {
-  const { serviceId } = await params;
-
-  const service = services.find((service) => service.id === serviceId);
-
-  if (!service) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-black">
-        <h1 className="text-2xl font-bold text-white">Service not found</h1>
-        <Link href="/" className="mt-4">
-          <Button>Return to Home</Button>
-        </Link>
-      </div>
-    );
-  }
+  const { lang } = await params;
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -76,7 +123,7 @@ export default async function ServiceDetail({
               className="p-4 border rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">Key Features</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {service.features.map((feature, index) => (
+                {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
                     <span className="text-gray-600">{feature}</span>
@@ -89,7 +136,7 @@ export default async function ServiceDetail({
               className="p-4 border rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">Common Use Cases</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {service.useCases.map((useCase, index) => (
+                {useCases.map((useCase, index) => (
                   <Card key={index} className="bg-white">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-2">
@@ -102,6 +149,35 @@ export default async function ServiceDetail({
               </div>
             </TabsContent>
           </Tabs>
+
+          {/*  Section */}
+          <div className="mt-12">
+            <p className="text-lg text-foreground/80 mb-6">Database Options</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {databaseOptions.map((option) => (
+                <Card key={option.id} className="border bg-white">
+                  <CardContent className="p-4">
+                    <div className="flex flex-col items-center text-center mb-3">
+                      <div className="w-20 h-20 flex items-center justify-center mb-3">
+                        <Image
+                          src={option.icon || "/placeholder.svg"}
+                          alt={option.title}
+                          width={80}
+                          height={80}
+                          className="object-contain"
+                        />
+                      </div>
+                      <h4 className="font-medium text-foreground">{option.title}</h4>
+                      <p className="text-sm text-foreground/70 mt-2">
+                        {option.description}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+          {/*  */}
         </div>
       </main>
     </div>

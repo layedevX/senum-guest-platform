@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <div className="relative footer">
       <div className="bg-black/90 absolute left-0 right-0 top-0 bottom-0 -z-10"></div>
-      <div className="flex flex-col gap-y-[50px] lg:flex-row justify-center lg:gap-x-[100px] md:gap-x-[70px] p-[20px]">
+      <div className="flex flex-col gap-y-[50px] lg:flex-row justify-between lg:gap-x-[100px] md:gap-x-[70px] p-[20px]">
         <div className="max-w-[300px] flex flex-col gap-x-1">
           <p className="text-xl text-white font-semibold mb-2">
             {translate({ en: "Subscribe", fr: "S'abonner" })}
@@ -50,7 +50,7 @@ export default function Footer() {
             <span className="font-semibold">
               {translate({ en: "Phone ", fr: "Telephone " })}{" "}
             </span>
-            +221 33 820 83 83
+            +221 338208383
           </p>
         </div>
         <div className="max-w-[250px] flex flex-col gap-y-2 text-center justify-center">
