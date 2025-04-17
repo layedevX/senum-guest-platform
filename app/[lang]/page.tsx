@@ -226,8 +226,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 </div>
                 <p className="text-foreground/70">
                   {translate({
-                    en: "HIPAA-compliant solutions for healthcare providers and medical research.",
-                    fr: "Solutions conformes aux normes HIPAA pour les prestataires de soins de santé et la recherche médicale."
+                    en: "Solutions for healthcare providers and medical research.",
+                    fr: "Solutions pour les prestataires de soins de santé et la recherche médicale."
                   })}
                 </p>
               </div>
@@ -260,6 +260,38 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 </p>
               </div>
             </div>
+            {/*  */}
+            <div
+              id="compliance"
+              className="flex justify-center items-center mt-[30px] px-4">
+              <div className="py-16 rounded-lg relative z-10">
+                <div id="patterns-bg"></div>
+
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-[50px]">
+                  <p className="max-w-[800px] text-2xl font-light text-black">
+                    {translate({
+                      en: "Ifrastructure and operations meeting international security and compliance standards",
+                      fr: "Infrastructures et des opérations conformes aux normes internationales de sécurité et de conformité"
+                    })}
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-[30px] md:flex-row lg:gap-x-[50px]">
+                  <div className="w-[200px] flex items-center justify-center">
+                    <Image src="/iso27001.webp" alt="iso27001" width={125} height={125} />
+                  </div>
+                  <div className="w-[200px] flex flex-col items-center justify-center">
+                    <Image src="/iso27017.webp" alt="iso27017" width={125} height={125} />
+                  </div>
+                  <div className="w-[200px] flex items-center justify-center">
+                    <Image src="/iso27018.webp" alt="iso27018" width={125} height={125} />
+                  </div>
+                  <div className="w-[200px] flex items-center justify-center">
+                    <Image src="/pci-dss-1.png" alt="pci-dss" width={150} height={150} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/*  */}
           </div>
         </section>
       </main>
