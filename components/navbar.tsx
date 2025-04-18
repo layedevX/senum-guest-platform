@@ -175,6 +175,14 @@ export default function Navbar() {
               onClick={toggleLang}>
               <GlobeIcon /> <span>{lang?.toUpperCase()}</span>
             </Button>
+            <Link href="/register">
+              <Button
+                size="sm"
+                variant={"outline"}
+                className="w-full border-primary border-2 hover:bg-black/5 hover:text-primary text-primary">
+                {translate({ en: "Create an Account", fr: "S'inscrire" })}
+              </Button>
+            </Link>
             <a href="https://origins.heritage.africa">
               <Button
                 size="sm"
