@@ -98,11 +98,11 @@ export default async function ServiceDetail() {
             <div className="md:w-3/4">
               <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
               <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
-              <a href="https://origins.heritage.africa">
+              <Link href="/register">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
                   {t("Access")} {t("title")}
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -113,7 +113,7 @@ export default async function ServiceDetail() {
             </TabsList>
             <TabsContent
               value="features"
-              className="p-4 border rounded-lg glass-bg-alt-2">
+              className="p-4 shadow-sm rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">{t("Key Features")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
@@ -126,7 +126,7 @@ export default async function ServiceDetail() {
             </TabsContent>
             <TabsContent
               value="use-cases"
-              className="p-4 border rounded-lg glass-bg-alt-2">
+              className="p-4 shadow-sm rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">{t("Common Use Cases")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((useCase, index) => (
@@ -148,7 +148,9 @@ export default async function ServiceDetail() {
             <p className="text-lg text-foreground/80 mb-6">{t("Database Options")}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {databaseOptions.map((option) => (
-                <Card key={option.id} className="border bg-white">
+                <Card
+                  key={option.id}
+                  className="glass-bg-alt-2 shadow-sm hover:shadow-md cursor-default transition-shadow duration-300">
                   <CardContent className="p-4">
                     <div className="flex flex-col items-center text-center mb-3">
                       <div className="w-20 h-20 flex items-center justify-center mb-3">
