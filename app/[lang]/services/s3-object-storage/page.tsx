@@ -97,11 +97,12 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export async function generateMetadata({}: {}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations(serviceId);
   return { title: t("title") };
 }
-export default async function ServiceDetail({ params }: { params: Promise<{}> }) {
+
+export default async function ServiceDetail() {
   const t = await getTranslations(serviceId);
 
   return (

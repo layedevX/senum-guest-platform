@@ -8,7 +8,6 @@ import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { getLang, getTranslateFn } from "@/utils/misc";
 
 const serviceId = "software-as-a-service";
 const service = services.find((service) => service.id === serviceId)!;
@@ -93,12 +92,12 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "fr" }];
 }
 
-export async function generateMetadata({}: {}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations(serviceId);
   return { title: t("title") };
 }
 
-export default async function ServiceDetail({ params }: { params: Promise<{}> }) {
+export default async function ServiceDetail() {
   const t = await getTranslations(serviceId);
 
   return (
