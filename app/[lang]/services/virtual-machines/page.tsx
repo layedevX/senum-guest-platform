@@ -115,7 +115,7 @@ export default async function ServiceDetail() {
             </TabsList>
             <TabsContent
               value="features"
-              className="p-4 border rounded-lg glass-bg-alt-2">
+              className="p-4 shadow-sm rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">{t("Key Features")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
@@ -128,7 +128,7 @@ export default async function ServiceDetail() {
             </TabsContent>
             <TabsContent
               value="use-cases"
-              className="p-4 border rounded-lg glass-bg-alt-2">
+              className="p-4 shadow-sm rounded-lg glass-bg-alt-2">
               <h3 className="text-xl font-light mb-4 hidden">{t("Common Use Cases")}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((useCase, index) => (
@@ -151,7 +151,9 @@ export default async function ServiceDetail() {
             <p className="text-lg text-foreground/80 mb-6">{t("Sizing Options")}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {vmOptions.map((option) => (
-                <Card key={option.id} className="border bg-white">
+                <Card
+                  key={option.id}
+                  className="glass-bg-alt-2 shadow-sm hover:shadow-md cursor-default transition-shadow duration-200">
                   <CardContent className="p-4">
                     <div className="flex flex-col">
                       <h4 className="font-medium text-foreground">{option.title}</h4>
@@ -169,7 +171,9 @@ export default async function ServiceDetail() {
             <p className="text-lg text-foreground/80 mb-6">{t("Operating Systems")}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {operatingSystems.map((os) => (
-                <Card key={os.id} className="border bg-white">
+                <Card
+                  key={os.id}
+                  className="glass-bg-alt-2 shadow-sm hover:shadow-md cursor-default transition-shadow duration-200">
                   <CardContent className="p-3">
                     <div className="flex flex-col items-center text-center">
                       <div className="w-16 h-16 flex items-center justify-center mb-2">
