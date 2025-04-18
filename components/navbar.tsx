@@ -16,6 +16,7 @@ import {
 import services from "@/utils/services";
 import { LANG_COOKIE } from "@/utils/constants";
 import { getTranslateFn } from "@/utils/misc";
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
@@ -25,6 +26,7 @@ export default function Navbar() {
   const langParam = useParams().lang as string | undefined;
   const lang = getLang(langParam);
   const translate = getTranslateFn(lang);
+  const t = useTranslations();
 
   function toggleLang() {
     const nextLang = lang === "fr" ? "en" : "fr";
@@ -115,7 +117,7 @@ export default function Navbar() {
                     View All Services
                   </Link>
                 </DropdownMenuItem>
-                {services.slice(0, 5).map(({ id, Icon, title, description }) => (
+                {services.slice(0, 5).map(({ id, Icon }) => (
                   <DropdownMenuItem key={id} className="p-3 focus:bg-gray-100">
                     <Link
                       href={`/${lang}/services/${id}`}
@@ -124,9 +126,11 @@ export default function Navbar() {
                         <Icon className="h-8 w-8 text-primary" />
                       </div>
                       <div>
-                        <div className="font-medium text-foreground">{title}</div>
+                        <div className="font-medium text-foreground">
+                          {t(`${id}.title`)}
+                        </div>
                         <div className="text-xs text-foreground/55 mt-1">
-                          {description}
+                          {t(`${id}.description`)}
                         </div>
                       </div>
                     </Link>
