@@ -121,11 +121,11 @@ export default async function ServiceDetail() {
             <div className="md:w-3/4">
               <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
               <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
-              <a href="https://origins.heritage.africa">
+              <Link href="/register">
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
                   {t("Access")} {t("title")}
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
 

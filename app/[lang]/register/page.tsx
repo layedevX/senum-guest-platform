@@ -196,8 +196,7 @@ export default function Register() {
 
               <form className="space-y-8" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Left Column */}
-                  <div className="space-y-4">
+                  <div className="col-span-1 space-y-4">
                     {/* Personal Information */}
                     <h3 className="text-xl font-medium border-b pb-2 text-foreground">
                       {t("register.Personal Information")}
@@ -294,82 +293,9 @@ export default function Register() {
                         />
                       </div>
                     </div>
-
-                    {/* Cloud Services */}
-                    <h3 className="text-xl font-medium border-b pb-2 mt-6 text-foreground">
-                      {t("register.Cloud Services")}
-                    </h3>
-                    <p className="text-sm text-foreground/60 mb-4">
-                      {t("register.Please select the services you are interested in")}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-2 border rounded-md p-3 bg-gray-50">
-                      {[
-                        ...services,
-                        { id: "not sure", Icon: MessageCircleQuestionIcon }
-                      ].map((service) => (
-                        <div
-                          key={service.id}
-                          className={cl(
-                            "flex items-center space-x-2 h-[50px] border-2 p-1 pl-3 rounded-md cursor-pointer hover:bg-gray-100",
-                            {
-                              "border-dashed": !fields.servicesOfInterest.includes(
-                                service.id
-                              )
-                            },
-                            {
-                              "border-black bg-gray-100":
-                                fields.servicesOfInterest.includes(service.id)
-                            },
-                            { "pointer-events-none": isLoading }
-                          )}
-                          onClick={() =>
-                            setFields({
-                              ...fields,
-                              servicesOfInterest: fields.servicesOfInterest.includes(
-                                service.id
-                              )
-                                ? fields.servicesOfInterest.filter(
-                                    (svc) => svc !== service.id
-                                  )
-                                : [...fields.servicesOfInterest, service.id]
-                            })
-                          }>
-                          <input
-                            type="checkbox"
-                            id={service.id}
-                            checked={fields.servicesOfInterest.includes(service.id)}
-                            className="pointer-events-none"
-                            onChange={(e) =>
-                              setFields({
-                                ...fields,
-                                servicesOfInterest: e.target.checked
-                                  ? [...fields.servicesOfInterest, service.id]
-                                  : fields.servicesOfInterest.filter(
-                                      (svc) => svc !== service.id
-                                    )
-                              })
-                            }
-                            disabled={isLoading}
-                          />
-                          <service.Icon className="text-primary pointer-events-none" />
-                          <span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 pointer-events-none select-none  ">
-                            {t(
-                              service.id === "not sure"
-                                ? "register.not sure"
-                                : `${service.id}.title`
-                            )}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Additional Information */}
                   </div>
-
-                  {/* Right Column */}
-                  <div className="space-y-4">
-                    {/* Company Information */}
+                  {/*  */}
+                  <div className="col-span-1 space-y-4">
                     <h3 className="text-xl font-medium border-b pb-2 text-foreground">
                       {t("register.Company Information")}
                     </h3>
@@ -466,6 +392,78 @@ export default function Register() {
                         </select>
                       </div>
                     </div>
+                  </div>
+                  {/*  */}
+                  <div className="col-span-1 md:col-span-2 space-y-4">
+                    <h3 className="text-xl font-medium border-b pb-2 mt-6 text-foreground">
+                      {t("register.Cloud Services")}
+                    </h3>
+                    <p className="text-sm text-foreground/60 mb-4">
+                      {t("register.Please select the services you are interested in")}
+                    </p>
+
+                    <div className="grid grid-cols-3 gap-2 border rounded-md p-3 bg-gray-50">
+                      {[
+                        ...services
+                        // { id: "not sure", Icon: MessageCircleQuestionIcon }
+                      ].map((service) => (
+                        <div
+                          key={service.id}
+                          className={cl(
+                            "flex items-center space-x-2 h-[50px] border-2 p-1 pl-3 rounded-md cursor-pointer hover:bg-gray-100",
+                            {
+                              "border-dashed": !fields.servicesOfInterest.includes(
+                                service.id
+                              )
+                            },
+                            {
+                              "border-black bg-gray-100":
+                                fields.servicesOfInterest.includes(service.id)
+                            },
+                            { "pointer-events-none": isLoading }
+                          )}
+                          onClick={() =>
+                            setFields({
+                              ...fields,
+                              servicesOfInterest: fields.servicesOfInterest.includes(
+                                service.id
+                              )
+                                ? fields.servicesOfInterest.filter(
+                                    (svc) => svc !== service.id
+                                  )
+                                : [...fields.servicesOfInterest, service.id]
+                            })
+                          }>
+                          <input
+                            type="checkbox"
+                            id={service.id}
+                            checked={fields.servicesOfInterest.includes(service.id)}
+                            className="pointer-events-none"
+                            onChange={(e) =>
+                              setFields({
+                                ...fields,
+                                servicesOfInterest: e.target.checked
+                                  ? [...fields.servicesOfInterest, service.id]
+                                  : fields.servicesOfInterest.filter(
+                                      (svc) => svc !== service.id
+                                    )
+                              })
+                            }
+                            disabled={isLoading}
+                          />
+                          <service.Icon className="text-primary pointer-events-none" />
+                          <span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 pointer-events-none select-none  ">
+                            {t(
+                              service.id === "not sure"
+                                ? "register.not sure"
+                                : `${service.id}.title`
+                            )}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="col-span-1 md:col-span-2 space-y-4">
                     <h3 className="text-xl font-medium border-b pb-2 mt-6 text-foreground">
                       {t("register.Additional Information")}
                     </h3>
