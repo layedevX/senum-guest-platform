@@ -62,7 +62,7 @@ export default async function Services({
                   {translate({ en: "Storage", fr: "Stockage" })}
                 </TabsTrigger>
                 <TabsTrigger value="data">
-                  {translate({ en: "Data", fr: "Données" })}
+                  {translate({ en: "Data & AI", fr: "Données & IA" })}
                 </TabsTrigger>
                 <TabsTrigger value="applications">
                   {translate({ en: "Applications", fr: "Applications" })}
