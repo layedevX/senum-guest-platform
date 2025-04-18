@@ -54,7 +54,9 @@ export default function Footer() {
           </p>
         </div>
         <div className="max-w-[250px] flex flex-col gap-y-2 text-center justify-center">
-          <Image alt="heritage-logo" src="/primary.svg" width={250} height={70} />
+          <a href="https://heritage.africa" target="_blank" rel="noopener noreferrer">
+            <Image alt="heritage-logo" src="/primary.svg" width={250} height={70} />
+          </a>
           <p className="text-white text-sm">
             &copy; 2025 Heritage Africa. All rights reserved.
           </p>
@@ -62,7 +64,9 @@ export default function Footer() {
       </div>
       <div className="h-[65px] w-full bg-black/10 ">
         <div className="max-w-[1200px] mx-auto flex items-center text-sm gap-[20px] p-[10px]">
-          <Image alt="accel-tech" src="/accel-logo.png" width={167} height={50} />
+          <a href="https://www.accel-tech.net" target="_blank" rel="noopener noreferrer">
+            <Image alt="accel-tech" src="/accel-logo.png" width={167} height={50} />
+          </a>
           <a
             href="https://www.accel-tech.net"
             target="_blank"
