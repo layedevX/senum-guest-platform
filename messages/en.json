@@ -2,7 +2,7 @@
   "openshift-workspaces": {
     "title": "OpenShift Workspaces",
     "description": "Fully managed OpenShift environments for your development teams.",
-    "longDescription": "OpenShift Workspaces provides a fully managed cloud development environment based on Red Hat OpenShift. It enables your development teams to code, build, test, and deploy applications without worrying about infrastructure management.",
+    "longDescription": "OpenShift Workspaces delivers a fully managed cloud development environment based on Red Hat OpenShift. It enables your development teams to code, build, test, and deploy applications without worrying about infrastructure management.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -57,7 +57,7 @@
   "software-as-a-service": {
     "title": "Software as a Service",
     "description": "Enterprise solutions including ERP, Analytics, AI/ML, IoT, Security, and more.",
-    "longDescription": "Our Software as a Service (SaaS) offerings provide enterprise-grade applications delivered through the cloud. From ERP and analytics to AI/ML platforms and security solutions, we offer a comprehensive suite of business applications.",
+    "longDescription": "The Software as a Service platform provides access to enterprise-grade applications without the complexity of managing the underlying infrastructure. From CRM and ERP to document management and collaboration tools, we offer a wide range of applications to meet your business needs.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -108,7 +108,7 @@
   "s3-object-storage": {
     "title": "S3 Object Storage",
     "description": "Scalable, secure object storage for your applications and data.",
-    "longDescription": "Our S3 Object Storage service provides a highly scalable, reliable, and secure solution for storing and retrieving any amount of data from anywhere on the web. It's designed for 99.999999999% durability and 99.99% availability.",
+    "longDescription": "Access scalable, durable, and secure storage for your unstructured data with S3 Object Storage service. Whether you're storing backups, media files, or application data, our S3-compatible storage ensures your data is always available when you need it.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -161,7 +161,7 @@
   "database-as-a-service": {
     "title": "Database as a Service",
     "description": "Managed database services including MySQL, MongoDB, PostgreSQL, Oracle, and more.",
-    "longDescription": "Our Database as a Service (DBaaS) offering provides fully managed database solutions that eliminate the complexity of database administration. We support a wide range of database technologies to meet your specific needs.",
+    "longDescription": "Database as a Service delivers fully managed database solutions for your applications. We handle the provisioning, scaling, backups, and maintenance, allowing you to focus on your application development rather than database administration.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -195,7 +195,7 @@
   "virtual-machines": {
     "title": "Virtual Machines",
     "description": "High-performance virtual machines with flexible configurations.",
-    "longDescription": "Our Virtual Machines service provides scalable, on-demand compute capacity in the cloud. Choose from a variety of VM configurations optimized for different workloads, from general-purpose to compute-optimized and memory-optimized instances.",
+    "longDescription": "Leverage flexible, high-performance computing resources for your applications and workloads with Virtual Machines service. With a range of configurations and operating systems available, you can quickly deploy and scale virtual machines to meet your specific requirements.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -230,7 +230,7 @@
   "backup-as-a-service": {
     "title": "Backup as a Service",
     "description": "Reliable backup solutions to protect your critical data.",
-    "longDescription": "Our Backup as a Service solution provides automated, secure, and reliable data protection for your critical business information. We ensure your data is safe, recoverable, and compliant with industry regulations.",
+    "longDescription": "Benefit from automated, secure, and reliable data protection for your critical business information with Backup as a Service. We ensure your data is safe, recoverable, and compliant with industry regulations.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -284,7 +284,7 @@
   "paas-application-hosting": {
     "title": "PaaS Application Hosting",
     "description": "Platform as a Service for simplified application deployment and management.",
-    "longDescription": "Our Platform as a Service (PaaS) offering provides a complete development and deployment environment in the cloud. It allows you to focus on building and running your applications without the complexity of managing the underlying infrastructure.",
+    "longDescription": "The PaaS Application Hosting service offers a fully managed platform for deploying and running your applications. We handle the infrastructure, scaling, and maintenance, allowing your team to focus on developing great applications.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -338,7 +338,7 @@
   "openshift-clusters": {
     "title": "Cluster OpenShift",
     "description": "Fully managed OpenShift clusters for enterprise container orchestration.",
-    "longDescription": "Our Cluster OpenShift service provides fully managed Red Hat OpenShift clusters for enterprise-grade container orchestration. It combines the power of Kubernetes with additional features for a complete container platform experience.",
+    "longDescription": "Leverage enterprise-grade container orchestration with Cluster OpenShift service that provides fully managed Red Hat OpenShift clusters for your containerized applications. We handle the deployment, configuration, scaling, and maintenance, allowing your team to focus on developing and deploying applications.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
@@ -392,7 +392,7 @@
   "serverless-functions": {
     "title": "Serverless Functions",
     "description": "Event-driven serverless computing platform for modern applications.",
-    "longDescription": "Our Serverless Functions service allows you to run code without provisioning or managing servers. It automatically scales your applications based on demand, and you only pay for the compute time you consume.",
+    "longDescription": "Utilize code execution without provisioning or managing servers with Serverless Functions service. You can build and deploy applications that automatically scale based on demand, and you only pay for the compute time you consume.",
     "Back to Services": "Back to Services",
     "Access": "Access",
     "Features": "Features",
