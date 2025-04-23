@@ -8,11 +8,15 @@ export async function POST(request: Request) {
 
   const body = await request.json();
 
+  console.log("Content for signup " + body);
+
   const result = await fetch(REGISTER_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body)
   });
+
+  console.log("Signup request completed with status " + result.status);
 
   if (result.status !== 200 && result.status !== 201) {
     try {
