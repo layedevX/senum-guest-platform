@@ -25,5 +25,7 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({}), { status: 500 });
   }
 
+  console.log("Registration successful...");
+
   return new Response(undefined, { status: 201 });
 }
