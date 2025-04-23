@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import services from "@/utils/services";
 import { cl } from "@/utils/misc";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { CheckCircleIcon } from "lucide-react";
 import { Spinner } from "@/components/spinner";
@@ -127,26 +127,28 @@ export default function Register() {
   const [fields, setFields] = useState(blank_fields);
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
-  const [error] = useState<null | string>(null);
-
-  const timeoutRef = useRef<NodeJS.Timeout>(null);
+  const [error, setError] = useState<null | string>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (isLoading) return;
     setLoading(true);
-    timeoutRef.current = setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
-      setFields(blank_fields);
-    }, 2000);
-  }
+    setError(null);
 
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
+    const result = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(fields)
+    });
+    setLoading(false);
+
+    if (result.status !== 201) {
+      setError("Failed to complete registration");
+      return;
+    }
+
+    setSuccess(true);
+  }
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -181,12 +183,6 @@ export default function Register() {
                   )}
                 </p>
               </div>
-
-              {error && (
-                <div className="bg-red-500 h-[40px] w-full  shadow-md text-white flex items-center justify-center mb-[20px] text-sm">
-                  {error}
-                </div>
-              )}
 
               {error && (
                 <div className="bg-red-500 h-[40px] w-full  shadow-md text-white flex items-center justify-center mb-[20px] text-sm">
