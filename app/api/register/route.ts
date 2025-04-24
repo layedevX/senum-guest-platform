@@ -4,7 +4,7 @@ import { forwardRegistrationData, stringToBool } from "@/utils/misc";
 export async function POST(request: Request) {
   const requiredVars = [
     "SMTP_HOST",
-    "SMTP_USER",
+    "SMTP_USERNAME",
     "SMTP_PASSWORD",
     "SMTP_PORT",
     "SMTP_TLS",
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     host: process.env.SMTP_HOST!,
     port: +process.env.SMTP_PORT!,
     secure: stringToBool(process.env.SMTP_TLS),
-    auth: { user: process.env.SMTP_USER!, pass: process.env.SMTP_PASSWORD! }
+    auth: { user: process.env.SMTP_USERNAME!, pass: process.env.SMTP_PASSWORD! }
   };
 
   const recipientEmails = process.env
