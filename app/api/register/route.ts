@@ -1,35 +1,60 @@
+import { sendRegisterNotificationMail, sendWelcomeMail } from "@/utils/mail";
+import { forwardRegistrationData, stringToBool } from "@/utils/misc";
+
 export async function POST(request: Request) {
-  const REGISTER_ENDPOINT = process.env.REGISTER_ENDPOINT;
-
-  if (!REGISTER_ENDPOINT) {
-    console.log("REGISTER_ENDPOINT missing");
+  const requiredVars = [
+    "SMTP_HOST",
+    "SMTP_USER",
+    "SMTP_PASSWORD",
+    "SMTP_PORT",
+    "SMTP_TLS",
+    "EMAIL_RECIPIENTS"
+  ];
+  for (const varName of requiredVars) {
+    if (process.env[varName]) continue;
+    console.log(`ERROR: Missing variable '${varName}'.`);
     return new Response(JSON.stringify({}), { status: 500 });
   }
 
-  const body = await request.json();
+  const transport = {
+    host: process.env.SMTP_HOST!,
+    port: +process.env.SMTP_PORT!,
+    secure: stringToBool(process.env.SMTP_TLS),
+    auth: { user: process.env.SMTP_USER!, pass: process.env.SMTP_PASSWORD! }
+  };
 
-  console.log("Content for signup " + body);
+  const recipientEmails = process.env
+    .EMAIL_RECIPIENTS!.split(",")
+    .map((mail) => mail.trim());
 
-  const result = await fetch(REGISTER_ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
-  });
+  const body: Record<string, string | undefined> = await request.json();
+  console.log("Registration Data" + JSON.stringify(body));
 
-  console.log("Signup request completed with status " + result.status);
+  const notificationSuccess = await sendRegisterNotificationMail(
+    transport,
+    recipientEmails,
+    body
+  );
 
-  if (result.status !== 200 && result.status !== 201) {
-    try {
-      const data = await result.json();
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-    console.log(`Error: Got status ${result.status} from register_endpoint`);
-    return new Response(JSON.stringify({}), { status: 500 });
+  sendWelcomeMail(
+    transport,
+    {
+      // validate
+      language: body.language!,
+      email: body.email!,
+      firstName: body.firstName!,
+      lastName: body.lastName!
+    },
+    recipientEmails
+  )
+    .then(() => {})
+    .catch(() => {});
+
+  if (process.env.REGISTER_ENDPOINT) {
+    forwardRegistrationData(process.env.REGISTER_ENDPOINT, body)
+      .then(() => {})
+      .catch(() => {});
   }
 
-  console.log("Registration successful...");
-
-  return new Response(undefined, { status: 201 });
+  return new Response(undefined, { status: notificationSuccess ? 201 : 500 });
 }
