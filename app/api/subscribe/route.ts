@@ -35,26 +35,11 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({ error: "Email is required" }), { status: 400 });
   }
 
-  const notificationSuccess = await sendSubscribeNotificationMail(
-    transport,
-    recipientEmails,
-    body
-  );
 
-  sendSubscribeWelcomeMail(transport, {
-    language: body.language || "fr",
-    email: body.email!,
-    firstName: body.firstName || "",
-    lastName: body.lastName || ""
-  })
+  const mailSuccess = sendSubscribeWelcomeMail(transport, { language: body.language || "fr", email: body.email! }, recipientEmails)
     .then(() => {})
     .catch(() => {});
 
-  if (process.env.SUBSCRIBE_ENDPOINT) {
-    forwardSubscriptionData(process.env.SUBSCRIBE_ENDPOINT, body)
-      .then(() => {})
-      .catch(() => {});
-  }
 
-  return new Response(undefined, { status: notificationSuccess ? 201 : 500 });
+  return new Response(undefined, { status: mailSuccess ? 200 : 500 });
 }
