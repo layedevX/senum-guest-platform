@@ -1,5 +1,5 @@
-import { sendSubscribeNotificationMail, sendSubscribeWelcomeMail } from "@/utils/mail";
-import { forwardSubscriptionData, stringToBool } from "@/utils/misc";
+import { sendSubscribeWelcomeMail } from "@/utils/mail";
+import { stringToBool } from "@/utils/misc";
 
 export async function POST(request: Request) {
   const requiredVars = [
