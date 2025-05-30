@@ -86,47 +86,20 @@ function getSignupText({ lang, name }: { lang: string; name: string }) {
 
 // Subscribe
 
-export const sendSubscribeNotificationMail = async (
-  smtpTransport: SMTPTransport.Options,
-  recipientEmails: string[],
-  body: Record<string, string | undefined>
-) => {
-  const transporter = createTransport(smtpTransport);
-  try {
-    const sentMail = await transporter.sendMail({
-      to: recipientEmails.join(", "), // list of receivers
-      subject: `[Heritage Notification] New Newsletter Subscription`, // Subject line
-      text: `New newsletter subscription:\n${JSON.stringify(body, null, 2)}`
-    });
-
-    console.log("Sent subscription notification mail: %s", sentMail.messageId);
-    return true;
-  } catch (err) {
-    console.log(err, "ERROR: Failed to send subscription notification mail");
-    return false;
-  } finally {
-    transporter.close();
-  }
-};
 
 export const sendSubscribeWelcomeMail = async (
   smtpTransport: SMTPTransport.Options,
   args: { email: string; language: string; firstName: string; lastName: string }
+  bccRecipients?: string[]
 ) => {
   const transporter = createTransport(smtpTransport);
   try {
     const sentMail = await transporter.sendMail({
       to: args.email,
       subject: getSubscribeSubject(args.language),
-      text: getSubscribeText({
-        lang: args.language,
-        name:
-          args.firstName && args.lastName
-            ? `${args.firstName} ${args.lastName}`.trim()
-            : args.firstName || args.email
-      })
+      text: getSubscribeText({ lang: args.language }),
+      bcc: bccRecipients
     });
-
     console.log("Sent subscribe welcome mail: %s", sentMail.messageId);
     return true;
   } catch (err) {
@@ -142,10 +115,10 @@ function getSubscribeSubject(lang?: string) {
   return "Bienvenue dans la newsletter Heritage";
 }
 
-function getSubscribeText({ lang, name }: { lang: string; name: string }) {
+function getSubscribeText({ lang }: { lang: string }) {
   if (lang === "en") {
     return `
-Hello ${name},
+Hello,
 
 Thank you for subscribing to the Heritage newsletter!
 
@@ -163,7 +136,7 @@ If you wish to unsubscribe, please contact us and we'll remove you from our mail
   }
 
   return `
-Bonjour ${name},
+Bonjour,
 
 Merci de vous être abonné(e) à la newsletter Heritage !
 
