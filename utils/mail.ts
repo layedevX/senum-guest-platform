@@ -86,10 +86,9 @@ function getSignupText({ lang, name }: { lang: string; name: string }) {
 
 // Subscribe
 
-
 export const sendSubscribeWelcomeMail = async (
   smtpTransport: SMTPTransport.Options,
-  args: { email: string; language: string; firstName: string; lastName: string }
+  args: { email: string; language: string; firstName: string; lastName: string },
   bccRecipients?: string[]
 ) => {
   const transporter = createTransport(smtpTransport);
