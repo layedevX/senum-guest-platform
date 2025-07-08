@@ -15,7 +15,7 @@ import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 import { getTranslations } from "next-intl/server";
 import { getHubUrl } from "@/lib/config";
-import { console } from "inspector";
+
 
 
 const serviceId = "s3-object-storage";
