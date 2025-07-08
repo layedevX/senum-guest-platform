@@ -4,9 +4,9 @@ export function getHubUrl(): string {
 
   if (env === "staging") {
     
-    return process.env.NEXT_PUBLIC_URL_STAGING ?? "";
+    return "https://staging-hub.heritage.africa";
   }
 
   
-  return process.env.NEXT_PUBLIC_URL_PROD ?? "";
+  return "https://hub.heritage.africa";
 }
