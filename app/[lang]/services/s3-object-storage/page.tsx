@@ -16,8 +16,6 @@ import services from "@/utils/services";
 import { getTranslations } from "next-intl/server";
 import { getHubUrl } from "@/lib/config";
 
-
-
 const serviceId = "s3-object-storage";
 const service = services.find((service) => service.id === serviceId)!;
 
@@ -108,7 +106,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ServiceDetail() {
   const t = await getTranslations(serviceId);
   const hubUrl = getHubUrl();
-  
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
