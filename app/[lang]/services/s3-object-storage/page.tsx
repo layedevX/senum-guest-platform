@@ -14,6 +14,9 @@ import { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import services from "@/utils/services";
 import { getTranslations } from "next-intl/server";
+import { getHubUrl } from "@/lib/config";
+import { console } from "inspector";
+
 
 const serviceId = "s3-object-storage";
 const service = services.find((service) => service.id === serviceId)!;
@@ -104,6 +107,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ServiceDetail() {
   const t = await getTranslations(serviceId);
+  const hubUrl = getHubUrl();
+  
 
   return (
     <div className="flex min-h-screen flex-col abstract-bg-alt">
@@ -124,7 +129,7 @@ export default async function ServiceDetail() {
             <div className="md:w-3/4">
               <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
               <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
-              <Link href="https://staging-hub.heritage.africa/buckets">
+              <Link href={`${hubUrl}/buckets`}>
                 <Button className="bg-primary hover:bg-primary/90 text-white w-full">
                   {t("Access")} {t("title")}
                 </Button>
