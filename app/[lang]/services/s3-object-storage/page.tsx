@@ -127,7 +127,7 @@ export default async function ServiceDetail() {
               <h1 className="text-3xl font-bold mb-4 text-foreground">{t("title")}</h1>
               <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
               <Link href={`${hubUrl}/buckets`}>
-                <Button className="bg-primary hover:bg-primary/90 text-white w-full">
+                <Button className="bg-red-400 hover:bg-primary/90 text-white w-full">
                   {t("Access")} {t("title")}
                 </Button>
               </Link>

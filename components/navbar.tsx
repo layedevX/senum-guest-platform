@@ -74,7 +74,7 @@ export default function Navbar() {
       <header
         className={cl(
           "w-full h-[65px]",
-          { "fixed top-0 left-0 right-0 z-50 bg-white": !dynamicStick || isSticky },
+          { "fixed top-0 left-0 right-0 z-50  bg-green-600/90": !dynamicStick || isSticky },
           { " shadow-md": isSticky },
           { "border-b border-gray-100 shadow-sm": !dynamicStick }
         )}>
@@ -179,16 +179,19 @@ export default function Navbar() {
               <Button
                 size="sm"
                 variant={"outline"}
-                className="w-full border-primary border-2 hover:bg-black/5 hover:text-primary text-primary">
+                className="w-full border-primary border-2 hover:bg-red-400/5 hover:text-primary text-primary">
                 {translate({ en: "Create an Account", fr: "S'inscrire" })}
               </Button>
             </Link>
             <a href="https://origins.heritage.africa">
+
               <Button
                 size="sm"
-                className="bg-primary hover:bg-primary/90 text-white w-full">
+                className="bg-red-400 hover:bg-red-600 text-white w-full"
+              >
                 {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>
+
             </a>
           </div>
         </div>

@@ -70,11 +70,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a href="https://origins.heritage.africa">
+
                     <Button
                       size="lg"
-                      className="bg-primary hover:bg-primary/90 text-white w-full">
+                      className="bg-red-400 hover:bg-red-600 text-white w-full"
+                    >
                       {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
                     </Button>
+
                   </a>
                   <Link href="/services">
                     <Button
@@ -99,7 +102,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-black">
+
+          <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6 mt-[90px] sm:mt-[100px] md:mt-[130px] lg:mt-[160px] xl:mt-[180px] mb-[-100px] sm:mb-[-120px] md:mb-[-170px] lg:mb-[-210px]">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -114,7 +118,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 </p>
                 <div className="pt-4">
                   <Link href="/services">
-                    <Button className="bg-primary hover:bg-primary/90 text-white">
+                    {/*<Button className="bg-primary hover:bg-primary/90 text-white">*/}
+                    <Button
+                      size="lg"
+                      className="bg-red-400 hover:bg-red-600 text-white w-full">
                       {translate({
                         en: "View All Services",
                         fr: "Afficher tous les services"

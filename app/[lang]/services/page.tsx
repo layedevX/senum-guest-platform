@@ -126,7 +126,7 @@ export default async function Services({
                   <a
                     href="mailto:support@heritage.africa?subject=Cloud Service Enquiry"
                     target="_blank">
-                    <Button className="bg-primary hover:bg-primary/90">
+                    <Button className="bg-red-400 hover:bg-red-700 text-white">
                       {translate({ en: "Contact Sales", fr: "Nous contacter" })}
                     </Button>
                   </a>

@@ -15,7 +15,8 @@ export default function Footer() {
 
   return (
     <div className="relative footer">
-      <div className="bg-black/90 absolute left-0 right-0 top-0 bottom-0 -z-10"></div>
+
+      <div className="bg-green-600/90 absolute left-0 right-0 top-0 bottom-0 -z-10"> </div>
       <div className="max-w-[1200px] mx-auto flex flex-col gap-y-[50px] lg:flex-row justify-between lg:gap-x-[100px] md:gap-x-[70px] p-[20px]">
         <div className="max-w-[300px] flex flex-col gap-x-1">
           <p className="text-xl text-white font-semibold mb-2">
@@ -44,13 +45,16 @@ export default function Footer() {
             <span className="font-semibold">
               {translate({ en: "Address ", fr: "Adresse " })}{" "}
             </span>
-            {"165 virage, Rte de l'Aeroport, Dakar, Senegal"}
+            {"Technopôle Dakar, 1er bâtiment à gauche.\n" +
+            "Site Adie, Pikine BP:6944 Dakar Etoile\n" +
+            "Sénégal, Ouest Afrique\n" +
+            "\n"}
           </p>
           <p className="text-white">
             <span className="font-semibold">
               {translate({ en: "Phone ", fr: "Telephone " })}{" "}
             </span>
-            +221 338208383
+            (221) 33 879 34 34
           </p>
         </div>
         <div className="max-w-[250px] flex flex-col gap-y-2 text-center justify-center">
@@ -58,30 +62,30 @@ export default function Footer() {
             <Image alt="heritage-logo" src="/primary.svg" width={250} height={70} />
           </a>
           <p className="text-white text-sm">
-            &copy; 2025 Heritage Africa. All rights reserved.
+            &copy; 2025 SENUM SA. All rights reserved.
           </p>
         </div>
       </div>
       <div className="h-[65px] w-full bg-black/10 ">
         <div className="max-w-[1200px] mx-auto flex items-center text-sm gap-[20px] p-[10px]">
-          <a href="https://www.accel-tech.net" target="_blank" rel="noopener noreferrer">
-            <Image alt="accel-tech" src="/accel-logo.png" width={167} height={50} />
+          <a href="https://senegalnumeriquesa.sn" target="_blank" rel="noopener noreferrer">
+            <Image alt="accel-tech" src="/senum.svg" width={167} height={50} />
           </a>
           <a
-            href="https://www.accel-tech.net"
+            href="https://senegalnumeriquesa.sn"
             target="_blank"
             className="text-white/90 hover:text-white/100">
             {translate({ en: "About", fr: "À propos" })}
           </a>
           <a
-            href="https://www.accel-tech.net"
+            href="https://senegalnumeriquesa.sn"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/90 hover:text-white/100">
             {translate({ en: "Services", fr: "Services" })}
           </a>
           <a
-            href="https://www.accel-tech.net"
+            href="https://senegalnumeriquesa.sn"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/90 hover:text-white/100">
@@ -125,8 +129,8 @@ const Subscribe: FC = () => {
         <Fragment>
           <p className="text-gray-100">
             {translate({
-              en: "Stay up to date on the Heritage Project.",
-              fr: "Restez informé(e) des actualités du Projet Heritage."
+              en: "Stay up to date on the SENUM Project.",
+              fr: "Restez informé(e) des actualités du Projet SENUM."
             })}
           </p>
           <form className="flex gap-x-1 w-full" onSubmit={handleSubmit}>
@@ -141,6 +145,7 @@ const Subscribe: FC = () => {
               required
             />
             <Button
+              className="bg-red-400 hover:bg-red-600 text-white w-full"
               label={translate({ en: "Subscribe", fr: "S'abonner" })}
               isLoading={isLoading}
             />
@@ -149,8 +154,8 @@ const Subscribe: FC = () => {
       ) : (
         <p className="text-gray-100">
           {translate({
-            en: "Thanks for subcribing to the Heritage Project.",
-            fr: "Merci de vous être abonné au Projet Héritage."
+            en: "Thanks for subcribing to the SENUM.",
+            fr: "Merci de vous être abonné au Projet SENUM."
           })}
         </p>
       )}
