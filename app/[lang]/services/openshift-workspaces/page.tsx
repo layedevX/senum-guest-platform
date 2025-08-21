@@ -121,7 +121,7 @@ export default async function ServiceDetail() {
               <p className="text-lg text-foreground/50 mb-6">{t("longDescription")}</p>
 
               <Link href={`${hubUrl}/workspaces`}>
-                <Button className="bg-red-400 hover:bg-primary/90 text-white w-full">
+                <Button className="bg-primary hover:bg-primary/90 text-white w-full">
                   {t("Access")} {t("title")}
                 </Button>
               </Link>

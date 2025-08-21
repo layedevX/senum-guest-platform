@@ -212,7 +212,7 @@ export default async function About({ params }: { params: Promise<{ lang: string
                   <a
                     target="_blank"
                     href="mailto:support@heritage.africa?subject=Let's Join Forces!">
-                    <Button className="bg-red-400 hover:bg-red-700 text-white">
+                    <Button className="bg-primary hover:bg-primary/90 text-white">
                       {translate({ en: "Join forces", fr: "Nous rejoindre" })}
                     </Button>
                   </a>

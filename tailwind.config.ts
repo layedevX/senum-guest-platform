@@ -21,7 +21,8 @@ const config = {
         "background": "hsl(var(--background))",
         "foreground": "hsl(var(--foreground))",
         "primary": {
-          DEFAULT: "#F15A24", // Primary orange color
+          // DEFAULT: "#F15A24", // Primary orange color
+          DEFAULT: "#154c79",
           foreground: "#FFFFFF"
         },
         "secondary": {

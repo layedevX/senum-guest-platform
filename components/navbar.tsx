@@ -179,7 +179,7 @@ export default function Navbar() {
               <Button
                 size="sm"
                 variant={"outline"}
-                className="w-full border-primary border-2 hover:bg-red-400/5 hover:text-primary text-primary">
+                className="w-full border-primary border-2 hover:bg-black/5 hover:text-primary text-primary">
                 {translate({ en: "Create an Account", fr: "S'inscrire" })}
               </Button>
             </Link>
@@ -187,7 +187,7 @@ export default function Navbar() {
 
               <Button
                 size="sm"
-                className="bg-red-400 hover:bg-red-600 text-white w-full"
+                className="bg-primary hover:bg-primary/90 text-white w-full">
               >
                 {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>

@@ -145,7 +145,7 @@ const Subscribe: FC = () => {
               required
             />
             <Button
-              className="bg-red-400 hover:bg-red-600 text-white w-full"
+              // className="bg-red-400 hover:bg-red-600 text-white w-full"
               label={translate({ en: "Subscribe", fr: "S'abonner" })}
               isLoading={isLoading}
             />

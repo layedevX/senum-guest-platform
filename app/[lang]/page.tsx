@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
                     <Button
                       size="lg"
-                      className="bg-red-400 hover:bg-red-600 text-white w-full"
+                      className="bg-primary hover:bg-primary/90 text-white w-full">
                     >
                       {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
                     </Button>
@@ -121,7 +121,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                     {/*<Button className="bg-primary hover:bg-primary/90 text-white">*/}
                     <Button
                       size="lg"
-                      className="bg-red-400 hover:bg-red-600 text-white w-full">
+                     className="bg-primary hover:bg-primary/90 text-white">
                       {translate({
                         en: "View All Services",
                         fr: "Afficher tous les services"
