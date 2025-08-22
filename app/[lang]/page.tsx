@@ -94,8 +94,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </section>
 
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-black">
-          <div className="container px-4 md:px-6 mt-[90px] sm:mt-[100px] md:mt-[130px] lg:mt-[160px] xl:mt-[180px] mb-[-100px] sm:mb-[-120px] md:mb-[-170px] lg:mb-[-210px]">
+        <section id="services" className="w-full py-12 md:py-24 bg-black">
+          <div className="container px-4 md:px-6 mt-[90px] sm:mt-[100px] md:mt-[130px] lg:mt-[160px] xl:mt-[180px]">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl text-white">
@@ -150,44 +150,40 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 </Card>
               ))}
             </div>
-            <div className="mt-[50px] w-full h-[200px] relative rounded-lg overflow-hidden shadow-md flex items-center">
-              <div className="absolute inset-0 glass-bg-alt"></div>
-              <div className="container px-4 md:px-6 relative z-10">
-                <div className="text-center mb-[10px]">
-                  <h2 className="text-2xl font-light text-black">
-                    {translate({
-                      en: "Powered By Leading Technologies",
-                      fr: "Propulsé par des technologies de pointe"
-                    })}
-                  </h2>
-                </div>
-                <div className="flex justify-center items-center gap-4 md:gap-6 flex-nowrap overflow-x-auto py-4">
-                  {partners.map((partner, index) => (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 w-28 h-16 flex items-center justify-center">
-                      <Image
-                        src={partner.logo || "/placeholder.svg"}
-                        alt={partner.name}
-                        width={partner.width}
-                        height={partner.height}
-                        className="object-contain max-h-14"
-                      />
-                    </div>
-                  ))}
-                </div>
+          </div>
+        </section>
+        <section>
+          <div className="w-full relative overflow-hidden flex items-center py-[45px] border">
+            {/* <div className="absolute inset-0 glass-bg-alt"></div> */}
+            <div className="container px-4 md:px-6 relative z-10">
+              <div className="text-center mb-[10px]">
+                <h2 className="text-2xl font-light text-black">
+                  {translate({
+                    en: "Powered By Leading Technologies",
+                    fr: "Propulsé par des technologies de pointe"
+                  })}
+                </h2>
+              </div>
+              <div className="flex justify-center items-center gap-4 md:gap-6 flex-nowrap overflow-x-auto py-4">
+                {partners.map((partner, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-28 h-16 flex items-center justify-center">
+                    <Image
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={partner.name}
+                      width={partner.width}
+                      height={partner.height}
+                      className="object-contain max-h-14"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section
-          id="solutions"
-          className="w-full py-12 md:py-24 lg:py-32 bg-white"
-          style={{
-            boxShadow:
-              "inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2)"
-          }}>
+        <section id="solutions" className="w-full py-12 bg-white">
           <div className="container px-4 md:px-6 mt-[90px] md:mt-[80px] lg:mt-[40px]">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -260,38 +256,36 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 </p>
               </div>
             </div>
-            {/*  */}
-            <div
-              id="compliance"
-              className="flex justify-center items-center mt-[30px] px-4">
-              <div className="py-16 rounded-lg relative z-10">
-                <div id="patterns-bg"></div>
+          </div>
+        </section>
+        <section>
+          <div
+            id="compliance"
+            className="py-[45px] border mb-[50px] lg:py-[60px] flex flex-col items-center relative z-10">
+            <div id="patterns-bg"></div>
 
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-[50px]">
-                  <p className="max-w-[800px] text-2xl font-light text-black">
-                    {translate({
-                      en: "Infrastructure and operations meeting international security and compliance standards",
-                      fr: "Infrastructures et opérations conformes aux normes internationales de sécurité et de conformité"
-                    })}
-                  </p>
-                </div>
-                <div className="flex flex-col items-center gap-[30px] md:flex-row lg:gap-x-[50px]">
-                  <div className="w-[200px] flex items-center justify-center">
-                    <Image src="/iso27001.webp" alt="iso27001" width={125} height={125} />
-                  </div>
-                  <div className="w-[200px] flex flex-col items-center justify-center">
-                    <Image src="/iso27017.webp" alt="iso27017" width={125} height={125} />
-                  </div>
-                  <div className="w-[200px] flex items-center justify-center">
-                    <Image src="/iso27018.webp" alt="iso27018" width={125} height={125} />
-                  </div>
-                  <div className="w-[200px] flex items-center justify-center">
-                    <Image src="/pci-dss-1.png" alt="pci-dss" width={150} height={150} />
-                  </div>
-                </div>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-[50px]">
+              <p className="max-w-[800px] text-2xl font-light text-black">
+                {translate({
+                  en: "Infrastructure and operations meeting international security and compliance standards",
+                  fr: "Infrastructures et opérations conformes aux normes internationales de sécurité et de conformité"
+                })}
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-[30px] md:flex-row lg:gap-x-[50px]">
+              <div className="w-[200px] flex items-center justify-center">
+                <Image src="/iso27001.webp" alt="iso27001" width={125} height={125} />
+              </div>
+              <div className="w-[200px] flex flex-col items-center justify-center">
+                <Image src="/iso27017.webp" alt="iso27017" width={125} height={125} />
+              </div>
+              <div className="w-[200px] flex items-center justify-center">
+                <Image src="/iso27018.webp" alt="iso27018" width={125} height={125} />
+              </div>
+              <div className="w-[200px] flex items-center justify-center">
+                <Image src="/pci-dss-1.png" alt="pci-dss" width={150} height={150} />
               </div>
             </div>
-            {/*  */}
           </div>
         </section>
       </main>

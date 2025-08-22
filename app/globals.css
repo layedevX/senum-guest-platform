@@ -33,7 +33,6 @@ body {
   font-family: "Montserrat", Arial, sans-serif;
 }
 
-
 .footer {
   font-family: "Red Hat Text", sans-serif;
 }
@@ -43,7 +42,7 @@ body {
 }
 
 #services {
-  background-image: url(/abstract-bg.svg);
+  /* background-image: url(/abstract-bg.svg); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -56,7 +55,7 @@ body {
 }
 
 #patterns-bg {
-  background-image: url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tribal-patterns2-CBYvzSyzEsJ0GbwiogaUHv9e5Ohw05.svg);
+  /* background-image: url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tribal-patterns2-CBYvzSyzEsJ0GbwiogaUHv9e5Ohw05.svg); */
   left: 0;
   right: 0;
   top: 0;
@@ -103,14 +102,14 @@ body {
   /*  #b59838 100%*/
   /*);*/
   background: -webkit-linear-gradient(
-          5deg,
-          yellowgreen,
-          #aa8818,
-          #b59838,
-          #aa8818,
-          yellowgreen,
-          #aa8818,
-          #b59838 100%
+    5deg,
+    yellowgreen,
+    #aa8818,
+    #b59838,
+    #aa8818,
+    yellowgreen,
+    #aa8818,
+    #b59838 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
