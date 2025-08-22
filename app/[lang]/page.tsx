@@ -95,7 +95,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   alt="Heritage Cloud Platform Dashboard"
                   width={1200}
                   height={675}
-                  className="rounded-lg shadow-xl border border-gray-700 border-r-gray-200"
+                  className="rounded-lg shadow-xl border "
                 />
               </div>
             </div>
