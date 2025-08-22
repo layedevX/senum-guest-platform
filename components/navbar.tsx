@@ -188,7 +188,7 @@ export default function Navbar() {
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-white w-full">
-              >
+
                 {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>
 

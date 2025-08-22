@@ -74,7 +74,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                     <Button
                       size="lg"
                       className="bg-primary hover:bg-primary/90 text-white w-full">
-                    >
+
                       {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
                     </Button>
 

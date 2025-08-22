@@ -92,15 +92,25 @@ body {
 
 .gradient-text-primary {
   /*-webkit-linear-gradient(120deg, gold, #aa8818 57.98%) */
+  /*background: -webkit-linear-gradient(*/
+  /*  5deg,*/
+  /*  gold,*/
+  /*  #aa8818,*/
+  /*  #b59838,*/
+  /*  #aa8818,*/
+  /*  gold,*/
+  /*  #aa8818,*/
+  /*  #b59838 100%*/
+  /*);*/
   background: -webkit-linear-gradient(
-    5deg,
-    gold,
-    #aa8818,
-    #b59838,
-    #aa8818,
-    gold,
-    #aa8818,
-    #b59838 100%
+          5deg,
+          yellowgreen,
+          #aa8818,
+          #b59838,
+          #aa8818,
+          yellowgreen,
+          #aa8818,
+          #b59838 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
