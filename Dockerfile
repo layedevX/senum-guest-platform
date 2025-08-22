@@ -1,6 +1,6 @@
-FROM node:15.1.0
+FROM node:18.18.0
 WORKDIR /src
 COPY package.json package.json
-RUN yarn
+RUN npm i
 COPY . .
 CMD ["npm", "run", "start"]
