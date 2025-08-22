@@ -21,7 +21,7 @@ import { useTranslations } from "next-intl";
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const pathname = usePathname();
-  const dynamicStick = ["/"].includes(pathname);
+  const dynamicStick = ["/en/", "/fr/"].includes(pathname);
 
   const langParam = useParams().lang as string | undefined;
   const lang = getLang(langParam);
@@ -74,7 +74,9 @@ export default function Navbar() {
       <header
         className={cl(
           "w-full h-[65px]",
-          { "fixed top-0 left-0 right-0 z-50  bg-green-600/90": !dynamicStick || isSticky },
+          {
+            "fixed top-0 left-0 right-0 z-50  bg-green-600/90": !dynamicStick || isSticky
+          },
           { " shadow-md": isSticky },
           { "border-b border-gray-100 shadow-sm": !dynamicStick }
         )}>
@@ -184,14 +186,11 @@ export default function Navbar() {
               </Button>
             </Link>
             <a href="https://origins.heritage.africa">
-
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-white w-full">
-
                 {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>
-
             </a>
           </div>
         </div>
