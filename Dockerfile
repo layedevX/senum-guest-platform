@@ -1,6 +1,9 @@
 FROM node:18.18.0
-WORKDIR /src
+WORKDIR /app
 COPY package.json package.json
-RUN npm i
+RUN npm install
 COPY . .
+RUN npm run build-prod
+EXPOSE 3000
 CMD ["npm", "run", "start"]
+
