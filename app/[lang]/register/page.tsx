@@ -261,7 +261,7 @@ export default function Register() {
                         </label>
                         <Input
                           id="last-name"
-                          placeholder="Gueye"
+                          placeholder="Seck"
                           required
                           className="border-gray-300"
                           value={fields.lastName}
@@ -281,7 +281,7 @@ export default function Register() {
                       <Input
                         id="email"
                         type="email"
-                        placeholder="john.doe@company.com"
+                        placeholder="abdoulaye.seck@senum.sn"
                         required
                         className="border-gray-300"
                         value={fields.email}

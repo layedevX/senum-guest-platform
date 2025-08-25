@@ -27,6 +27,7 @@
   --ring: 0 0% 83.1%;
   --radius: 0.5rem;
   --dark-gray: 0 0% 14%;
+  color-scheme: light only;
 }
 
 body {
