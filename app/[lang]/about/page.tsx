@@ -58,8 +58,8 @@ export default async function About({ params }: { params: Promise<{ lang: string
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-foreground">
                     {translate({
-                      en: "About Heritage Cloud",
-                      fr: "A propos du Cloud Heritage"
+                      en: "About SENUM Cloud",
+                      fr: "A propos du Cloud SENUM"
                     })}
                   </h1>
                   <p className="max-w-[600px] text-foreground/70 md:text-xl">
@@ -71,8 +71,8 @@ export default async function About({ params }: { params: Promise<{ lang: string
                 </div>
                 <p className="text-foreground/50">
                   {translate({
-                    en: "Heritage Cloud was founded with a vision to provide African businesses with the same level of cloud infrastructure and services available to enterprises around the world. We believe that access to cutting-edge technology is essential for innovation and growth in today's digital economy.",
-                    fr: "Heritage Cloud a été fondé avec la vision de fournir aux entreprises africaines le même niveau d'infrastructure et de services cloud disponibles pour les entreprises du monde entier. Nous croyons que l'accès aux technologies de pointe est essentiel pour l'innovation et la croissance dans l'économie numérique actuelle."
+                    en: "SENUM Cloud was founded with a vision to provide African businesses with the same level of cloud infrastructure and services available to enterprises around the world. We believe that access to cutting-edge technology is essential for innovation and growth in today's digital economy.",
+                    fr: "SENUM Cloud a été fondé avec la vision de fournir aux entreprises africaines le même niveau d'infrastructure et de services cloud disponibles pour les entreprises du monde entier. Nous croyons que l'accès aux technologies de pointe est essentiel pour l'innovation et la croissance dans l'économie numérique actuelle."
                   })}
                 </p>
                 <p className="text-foreground/50">
