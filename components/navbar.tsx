@@ -80,7 +80,7 @@ export default function Navbar() {
           { " shadow-md": isSticky },
           { "border-b border-gray-100 shadow-sm": !dynamicStick }
         )}>
-        <div className="container flex h-16 items-center">
+        <div className="px-[5px] lg:px-[50px] md:px-[30px] flex h-16 items-center">
           <div className="flex-1">
             <Link href={`/${lang}/`} className="flex items-center">
               <Image
@@ -188,7 +188,7 @@ export default function Navbar() {
             <a href="https://origins.heritage.africa">
               <Button
                 size="sm"
-                className="bg-primary hover:bg-primary/90 text-white w-full">
+                className="bg-primary hover:bg-primary/90 text-white w-full hidden lg:block">
                 {translate({ en: "Access Cloud", fr: "Accéder au Cloud" })}
               </Button>
             </a>
