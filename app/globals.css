@@ -49,7 +49,7 @@ body {
 }
 
 .abstract-bg-alt {
-  background-image: url("/abstract-bg-2.svg");
+  /* background-image: url("/abstract-bg-2.svg"); */
   background-size: 75%;
   background-repeat: repeat;
 }
